@@ -182,58 +182,68 @@ export const PerformanceSchema = z.object({
   scope: z.string().min(1, { message: "担当範囲を入力してください" }),
 })
 
-export const ProjectSchema = z.object({
-  name: z.string().min(2, {
+export const PostCodeSchema = z.object({
+  postCode1: z.string().regex(/^\d{3}$/, "郵便番号は3桁で入力してください"),
+  postCode2: z.string().regex(/^\d{4}$/, "郵便番号は4桁で入力してください"),
+})
+
+export const Satei1Schema = z.object({
+  blockNumber: z.string().min(1, {
+    message: "丁目 番地 号を入力してください",
+  }),
+  buildingName: z.string().optional(),
+  roomNumber: z.string().optional(),
+  buildingArea: z.string().min(1, {
+    message: "建物面積を入力してください",
+  }),
+  layout: z.string().min(1, {
+    message: "間取りを入力してください",
+  }),
+  buildingAge: z.string().min(1, {
+    message: "築年数を入力してください",
+  }),
+  propertyStatus: z.string().min(1, {
+    message: "物件の状況を選択してください",
+  }),
+})
+
+export const Satei2Schema = z.object({
+  name: z.string().min(1, {
     message: "お名前を入力してください",
+  }),
+  furigana: z.string().min(1, {
+    message: "フリガナを入力してください",
+  }),
+  tel: z.string().regex(phoneRegex, {
+    message: "有効な電話番号を入力してください(例: 090-1234-5678)",
   }),
   email: z.string().email({
     message: "メールアドレスを入力してください",
   }),
-  companyName: z.string().min(2, {
-    message: "法人名を入力してください",
+  address2: z.string().optional(),
+  contactMethod: z.string().min(1, {
+    message: "ご希望連絡方法を入力してください",
   }),
-  companyPostCode: z.string().regex(postcodeRegex, {
-    message: "有効な郵便番号を入力してください(例: 123-4567)",
+})
+
+export const SateiSchema = z.object({
+  postCode: z.string().regex(/^\d{7}$/, {
+    message: "郵便番号は7桁で入力してください",
   }),
-  companyPrefecture: z.string().min(2, {
-    message: "都道府県を入力してください",
+  address1: z.string().min(1, {
+    message: "住所を入力してください",
   }),
-  companyCity: z.string().min(2, {
-    message: "市区町村を入力してください",
+  ...Satei1Schema.shape,
+  ...Satei2Schema.shape,
+})
+
+export const ProjectSchema = z.object({
+  ...SateiSchema.shape,
+  areaList: z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "紹介エリアを選択してください",
   }),
-  companyAddress: z.string().min(2, {
-    message: "丁目・番地・部屋番号を入力してください",
-  }),
-  companyPhone: z.string().regex(phoneRegex, {
-    message: "有効な電話番号を入力してください(例: 03-1234-5678)",
-  }),
-  areaList: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "紹介エリアを選択してください",
-    }),
-  title: z.string().min(2, {
-    message: "タイトルを入力してください",
-  }),
-  budget: z.number().positive({
-    message: "予算は数値で入力してください(例: 100000)",
-  }),
-  planPageNumber: z.number().positive({
-    message: "予定ページ数は数値で入力してください(例: 10)",
-  }),
-  productTypeList: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "制作種類を選択または記入してください",
-    }),
-  otherProductType: z.string().optional(),
-  desiredFunctionTypeList: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "制作種類を選択または記入してください",
-    }),
-  otherDesiredFunctionType: z.string().optional(),
   requests: z.string().optional(),
+  memo: z.string().optional(),
   referralFee: z.number().positive({
     message: "紹介金額は数値で入力してください(例: 30000)",
   }),
@@ -241,9 +251,5 @@ export const ProjectSchema = z.object({
     message: "最大紹介数は数値で入力してください(例: 3)",
   }),
   isReferralAllowed: z.boolean(),
-  contactMethod: z.string().min(2, {
-    message: "連絡方法をを入力してください(例: メール、電話、訪問)",
-  }),
-  dueDate: z.date(),
   publishEndDate: z.date(),
 })

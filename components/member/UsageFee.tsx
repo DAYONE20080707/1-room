@@ -53,11 +53,14 @@ const UsageFee = ({ usageFees }: UsageFeeProps) => {
             className="border py-1 text-center"
           >
             <option value="">選択してください</option>
-            {[...Array(5)].map((_, index) => (
-              <option key={index} value={2024 - index}>
-                {2024 - index}
-              </option>
-            ))}
+            {Array.from({ length: 5 }).map((_, index) => {
+              const currentYear = new Date().getFullYear()
+              return (
+                <option key={index} value={currentYear - index}>
+                  {currentYear - index}
+                </option>
+              )
+            })}
           </select>
           <label className="mx-3">年</label>
         </div>

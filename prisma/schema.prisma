@@ -91,31 +91,30 @@ model VerificationToken {
 }
 
 model Project {
-  id                       String   @id @default(cuid())
-  name                     String
-  email                    String
-  companyName              String
-  companyPostCode          String
-  companyPrefecture        String
-  companyCity              String
-  companyAddress           String
-  companyPhone             String
-  area                     String?
-  title                    String
-  budget                   Int
-  planPageNumber           Int
-  productTypes             String
-  otherProductType         String?
-  desiredFunctionTypes     String
-  otherDesiredFunctionType String?
-  requests                 String?
-  isReceived               Boolean  @default(false)
-  publishEndDate           DateTime
-  referralFee              Int
-  maxReferrals             Int
-  isReferralAllowed        Boolean  @default(false)
-  contactMethod            String
-  dueDate                  DateTime
+  id                String   @id @default(cuid())
+  name              String
+  furigana          String
+  tel               String
+  email             String
+  address2          String?
+  contactMethod     String
+  postCode          String
+  address1          String
+  blockNumber       String
+  buildingName      String?
+  roomNumber        String?
+  buildingArea      String
+  layout            String
+  buildingAge       String
+  propertyStatus    String
+  requests          String?
+  memo              String?
+  isReferralAllowed Boolean  @default(false)
+  referralFee       Int
+  maxReferrals      Int
+  publishEndDate    DateTime
+  area              String?
+  isReceived        Boolean  @default(false)
 
   projectCompanies ProjectCompany[]
 

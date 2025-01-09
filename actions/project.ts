@@ -2,53 +2,40 @@
 
 import { z } from "zod"
 import { db } from "@/lib/prisma"
-import { OrderFormSchema, ProjectSchema } from "@/schemas"
+import { SateiSchema, ProjectSchema } from "@/schemas"
 import { addDays } from "date-fns"
 import { sendEmail } from "@/actions/sendEmail"
 import { SITE_NAME } from "@/lib/utils"
 
-export interface createProjectProps extends z.infer<typeof OrderFormSchema> {
-  name: string
-  email: string
-  productTypes: string
-  desiredFunctionTypes: string
-}
-
-export const createProject = async (values: createProjectProps) => {
+export const createProject = async (values: z.infer<typeof SateiSchema>) => {
   try {
-    const { name, email, productTypes, desiredFunctionTypes } = values
-
     const project = await db.project.create({
       data: {
-        name,
-        email,
-        companyName: values.companyName,
-        companyPostCode: values.companyPostCode,
-        companyPrefecture: values.companyPrefecture,
-        companyCity: values.companyCity,
-        companyAddress: values.companyAddress,
-        companyPhone: values.companyPhone,
-        title: values.title,
-        budget: values.budget,
-        planPageNumber: values.planPageNumber,
-        productTypes,
-        otherProductType: values.otherProductType,
-        desiredFunctionTypes,
-        otherDesiredFunctionType: values.otherDesiredFunctionType,
-        requests: values.requests,
-        publishEndDate: addDays(new Date(), 7),
+        name: values.name,
+        furigana: values.furigana,
+        tel: values.tel,
+        email: values.email,
+        address2: values.address2,
+        contactMethod: values.contactMethod,
+        postCode: values.postCode,
+        address1: values.address1,
+        blockNumber: values.blockNumber,
+        buildingName: values.buildingName,
+        roomNumber: values.roomNumber,
+        buildingArea: values.buildingArea,
+        layout: values.layout,
+        buildingAge: values.buildingAge,
+        propertyStatus: values.propertyStatus,
         referralFee: 30000,
         maxReferrals: 2,
-        contactMethod: "メール",
-        dueDate: values.dueDate,
-        isReferralAllowed: false,
+        publishEndDate: addDays(new Date(), 7),
       },
     })
 
     const subject = `【${SITE_NAME}】査定申し込み完了`
     const body = `
 <div>
-  <p>${name}様</p>
+  <p>${values.name}様</p>
   <p>
     査定申し込みが完了しました。<br />
     査定には、数日かかる場合がございます。<br />
@@ -72,13 +59,11 @@ export const createProject = async (values: createProjectProps) => {
 <div>
   <p>新しい査定が申し込まれました。以下は申し込まれた案件の情報です。</p>
   <ul>
-    <li><strong>タイトル:</strong> ${project.title}</li>
-    <li><strong>会社名:</strong> ${project.companyName}</li>
-    <li><strong>予算:</strong> ${project.budget.toLocaleString()}円</li>
-    <li><strong>納期:</strong> ${project.dueDate.toLocaleDateString()}</li>
-    <li><strong>所在地:</strong> ${project.companyPrefecture}${
-      project.companyCity
-    }${project.companyAddress}</li>
+    <li><strong>建物名:</strong> ${project.buildingName || "建物名なし"}</li>
+    <li><strong>住所:</strong> ${project.address1}${project.blockNumber}</li>
+    <li><strong>建物面積:</strong> ${project.buildingArea}</li>
+    <li><strong>レイアウト:</strong> ${project.layout}</li>
+    <li><strong>築年数:</strong> ${project.buildingAge}</li>
   </ul>
   <p>詳細は管理ページで確認できます。</p>
   <a href="${process.env.NEXT_PUBLIC_APP_URL}/admin/project/${
@@ -108,14 +93,12 @@ export const createProject = async (values: createProjectProps) => {
 
 export interface editProjectProps extends z.infer<typeof ProjectSchema> {
   id: string
-  productTypes: string
-  desiredFunctionTypes: string
   area: string
 }
 
 export const editProject = async (values: editProjectProps) => {
   try {
-    const { id, productTypes, desiredFunctionTypes } = values
+    const { id } = values
 
     // 現在のプロジェクトデータを取得
     const existingProject = await db.project.findUnique({
@@ -147,12 +130,11 @@ export const editProject = async (values: editProjectProps) => {
       <p>${name}様</p>
       <p>新しい紹介案件が追加されました。以下は案件の情報です。</p>
       <ul>
-        <li><strong>タイトル:</strong> ${values.title}</li>
-        <li><strong>会社名:</strong> ${values.companyName}</li>
-        <li><strong>予算:</strong> ${values.budget.toLocaleString()}円</li>
-        <li><strong>予定ページ数:</strong> ${values.planPageNumber}ページ</li>
-        <li><strong>制作種類内容:</strong> ${productTypes}</li>
-        <li><strong>欲しい機能:</strong> ${desiredFunctionTypes}</li>
+        <li><strong>建物名:</strong> ${values.buildingName || "建物名なし"}</li>
+        <li><strong>住所:</strong> ${values.address1}${values.blockNumber}</li>
+        <li><strong>建物面積:</strong> ${values.buildingArea}</li>
+        <li><strong>レイアウト:</strong> ${values.layout}</li>
+        <li><strong>築年数:</strong> ${values.buildingAge}</li>
       </ul>
       <p>詳細はマイページで確認できます。</p>
       <p><a href="${
@@ -175,27 +157,26 @@ export const editProject = async (values: editProjectProps) => {
       },
       data: {
         name: values.name,
+        furigana: values.furigana,
+        tel: values.tel,
         email: values.email,
-        companyName: values.companyName,
-        companyPostCode: values.companyPostCode,
-        companyPrefecture: values.companyPrefecture,
-        companyCity: values.companyCity,
-        companyAddress: values.companyAddress,
-        companyPhone: values.companyPhone,
-        area: values.area,
-        title: values.title,
-        budget: values.budget,
-        planPageNumber: values.planPageNumber,
-        productTypes,
-        otherProductType: values.otherProductType,
-        desiredFunctionTypes,
-        otherDesiredFunctionType: values.otherDesiredFunctionType,
-        requests: values.requests,
-        publishEndDate: values.publishEndDate,
+        address2: values.address2,
+        contactMethod: values.contactMethod,
+        postCode: values.postCode,
+        address1: values.address1,
+        blockNumber: values.blockNumber,
+        buildingName: values.buildingName,
+        roomNumber: values.roomNumber,
+        buildingArea: values.buildingArea,
+        layout: values.layout,
+        buildingAge: values.buildingAge,
+        propertyStatus: values.propertyStatus,
         referralFee: values.referralFee,
         maxReferrals: values.maxReferrals,
-        contactMethod: values.contactMethod,
-        dueDate: values.dueDate,
+        publishEndDate: values.publishEndDate,
+        area: values.area,
+        requests: values.requests,
+        memo: values.memo,
         isReferralAllowed: values.isReferralAllowed,
       },
     })

@@ -14,7 +14,7 @@ const Navigation = ({ user }: NavigationProps) => {
     <header className="border-b">
       <div className="px-3 max-w-screen-lg mx-auto py-4 flex items-center justify-between ">
         <div className="font-bold text-xl">
-          <Link href="/">査定サイト</Link>
+          <Link href="/">1Rマンション査定</Link>
         </div>
 
         <div className="flex items-center space-x-2 text-xs">

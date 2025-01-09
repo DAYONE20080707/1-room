@@ -59,6 +59,11 @@ export const PREFECTURES = [
   "沖縄県",
 ]
 
+export const extractPrefecture = (address: string) => {
+  const prefecture = PREFECTURES.find((pref) => address.startsWith(pref))
+  return prefecture || null
+}
+
 export const PRODUCT_TYPE_LIST = [
   {
     id: "1",
@@ -345,3 +350,10 @@ export const AREA_LIST = [
     label: "沖縄県",
   },
 ] as const
+
+export const formatPostCode = (code: string) => {
+  if (code.length === 7) {
+    return `〒${code.slice(0, 3)}-${code.slice(3)}`
+  }
+  return code
+}

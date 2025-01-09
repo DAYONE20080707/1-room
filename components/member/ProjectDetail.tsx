@@ -12,6 +12,8 @@ import {
   receivedProject,
   lostDelivered,
 } from "@/actions/project"
+import { formatPostCode } from "@/lib/utils"
+import { Loader2 } from "lucide-react"
 
 interface ProjectDetailProps {
   project: Project & { status: string }
@@ -30,7 +32,7 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
       await negotiateProject({
         companyId,
         projectId: project.id,
-        itemName: `${project.companyName} - ${project.title}`,
+        itemName: `${project.buildingName || project.address2}`,
       })
 
       toast.success("紹介希望しました、お客様にご連絡をお願いします")
@@ -144,33 +146,25 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
             </tr>
           )}
 
-          <tr>
-            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-              法人名
-            </th>
-            <td className="p-2">{project.companyName}</td>
-          </tr>
-
           {project.status !== "NEW" && (
             <>
               <tr>
                 <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-                  法人住所
-                </th>
-                <td className="p-2">
-                  {project.companyPostCode}
-                  <br />
-                  {project.companyPrefecture}
-                  {project.companyCity}
-                  {project.companyAddress}
-                </td>
-              </tr>
-
-              <tr>
-                <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-                  氏名
+                  名前
                 </th>
                 <td className="p-2">{project.name}</td>
+              </tr>
+              <tr>
+                <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
+                  フリガナ
+                </th>
+                <td className="p-2">{project.furigana}</td>
+              </tr>
+              <tr>
+                <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
+                  電話番号
+                </th>
+                <td className="p-2">{project.tel}</td>
               </tr>
               <tr>
                 <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
@@ -180,14 +174,12 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
                 </th>
                 <td className="p-2">{project.email}</td>
               </tr>
-
               <tr>
                 <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-                  電話番号
+                  住所
                 </th>
-                <td className="p-2">{project.companyPhone}</td>
+                <td className="p-2">{project.address2 || project.address1}</td>
               </tr>
-
               <tr>
                 <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
                   連絡方法
@@ -200,53 +192,76 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
       </table>
 
       <div className="text-xl font-bold border-b border-black py-5 mb-5">
-        依頼内容
+        物件情報
       </div>
 
       <table className="w-full border-collapse mb-10  text-sm">
         <tbody>
           <tr>
             <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-              予算
+              建物名
             </th>
-            <td className="p-2">{project.budget.toLocaleString()}円</td>
+            <td className="p-2">{project.buildingName}</td>
           </tr>
+
           <tr>
             <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-              紹介金額
-            </th>
-            <td className="p-2">{project.referralFee.toLocaleString()}円</td>
-          </tr>
-          <tr>
-            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-              ページ数
-            </th>
-            <td className="p-2">{project.planPageNumber}ページ</td>
-          </tr>
-          <tr>
-            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-              制作種類
-              <br className="block md:hidden" />
-              内容
+              建物住所
             </th>
             <td className="p-2">
-              {project.productTypes}
-              <br />
-              {project.otherProductType}
+              <div>{formatPostCode(project.postCode)}</div>
+              <div>
+                {project.address1}
+                {project.blockNumber}
+              </div>
             </td>
           </tr>
+
           <tr>
             <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
-              欲しい
-              <br className="block md:hidden" />
-              機能
+              部屋番号
             </th>
             <td className="p-2">
-              {project.desiredFunctionTypes}
-              <br />
-              {project.otherDesiredFunctionType}
+              <div>{project.roomNumber}</div>
             </td>
           </tr>
+
+          <tr>
+            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
+              建物(占有)面積
+            </th>
+            <td className="p-2">
+              <div>{project.buildingArea}</div>
+            </td>
+          </tr>
+
+          <tr>
+            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
+              間取り
+            </th>
+            <td className="p-2">
+              <div>{project.layout}</div>
+            </td>
+          </tr>
+
+          <tr>
+            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
+              築年数
+            </th>
+            <td className="p-2">
+              <div>{project.buildingAge}</div>
+            </td>
+          </tr>
+
+          <tr>
+            <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
+              物件の状況
+            </th>
+            <td className="p-2">
+              <div>{project.propertyStatus}</div>
+            </td>
+          </tr>
+
           <tr>
             <th className="w-[80px] md:w-[200px] font-bold text-left p-2">
               意見・
@@ -263,22 +278,28 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
           <Button
             className="w-full md:w-[200px] bg-yellow-500 hover:bg-yellow-500/90"
             onClick={handleNegotiation}
+            disabled={isLoading}
           >
-            紹介希望
+            {isLoading && <Loader2 className="animate-spin" />}
+            <span>紹介希望</span>
           </Button>
         ) : project.status === "NEGOTIATION" ? (
           <>
             <Button
               className="w-full md:w-[200px] bg-green-500 hover:bg-green-500/90"
               onClick={handleReceived}
+              disabled={isLoading}
             >
-              受注
+              {isLoading && <Loader2 className="animate-spin" />}
+              <span>受注</span>
             </Button>
             <Button
               className="w-full md:w-[200px] bg-gray-500 hover:bg-gray-500/90"
               onClick={handleLost}
+              disabled={isLoading}
             >
-              失注
+              {isLoading && <Loader2 className="animate-spin" />}
+              <span>失注</span>
             </Button>
           </>
         ) : project.status === "RECEIVED" ? (
@@ -286,8 +307,10 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
             <Button
               className="w-full md:w-[200px] bg-purple-500 hover:bg-purple-500/90"
               onClick={handleDelivered}
+              disabled={isLoading}
             >
-              納品
+              {isLoading && <Loader2 className="animate-spin" />}
+              <span>納品</span>
             </Button>
           </>
         ) : (

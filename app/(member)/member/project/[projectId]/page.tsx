@@ -34,7 +34,7 @@ const ProjectDetailPage = async ({ params }: ProjectDetailPageProps) => {
   return (
     <div className="bg-white md:border w-full rounded md:rounded-r-md p-2 md:p-10 h-full">
       <div className="text-xl font-bold border-b border-black pb-5 mb-5">
-        {project.title}
+        査定の連絡先
       </div>
 
       <ProjectDetail project={project} companyId={user.companyId} />

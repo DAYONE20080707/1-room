@@ -1,5 +1,6 @@
 "use client"
 
+import { formatPostCode } from "@/lib/utils"
 import { Project, ProjectStatus } from "@prisma/client"
 import { format } from "date-fns"
 import Link from "next/link"
@@ -92,26 +93,22 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
         </div>
         <div className="font-bold text-lg underline">
           <Link href={`/member/project/${project.id}`}>
-            {project.companyName} - {project.title}
+            {project.buildingName || "建物名なし"}
           </Link>
         </div>
-        <div className="flex flex-col md:flex-row md:items-center md:space-x-10">
-          <div className="flex items-baseline space-x-3">
-            <div className="text-sm w-[100px] md:w-auto">案件予算(上限)</div>
-            <div className="text-2xl font-bold">
-              {project.budget.toLocaleString()}円
-            </div>
-          </div>
-          <div className="flex items-baseline space-x-3">
-            <div className="text-sm w-[100px] md:w-auto">紹介金額</div>
-            <div className="text-2xl font-bold">
-              {project.referralFee.toLocaleString()}円
-            </div>
-          </div>
+        <div>
+          <div className="font-bold mb-1">紹介金額</div>
+          <div>{project.referralFee.toLocaleString()}円</div>
         </div>
         <div>
-          <div className="font-bold mb-1">制作種類内容</div>
-          <div>{project.productTypes}</div>
+          <div className="font-bold mb-1">建物住所</div>
+          <div>
+            <div>{formatPostCode(project.postCode)}</div>
+            <div>
+              {project.address1}
+              {project.blockNumber} {project.roomNumber}
+            </div>
+          </div>
         </div>
       </div>
     </div>

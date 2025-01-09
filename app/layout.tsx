@@ -14,8 +14,8 @@ const mPlus1 = M_PLUS_1({
 
 export const metadata: Metadata = {
   title: {
-    template: "査定一括",
-    default: "査定一括",
+    template: "1Rマンション査定",
+    default: "1Rマンション査定",
   },
 }
 
