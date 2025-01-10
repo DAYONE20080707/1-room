@@ -17,7 +17,7 @@ const PerformanceItem = () => {
       </div>
       <div className="flex items-center">
         <div className="font-bold text-gray-400 w-20">エリア</div>
-        <div>東京都渋谷区</div>
+        <div className="font-bold">東京都渋谷区</div>
       </div>
       <div className="flex items-center">
         <div className="font-bold text-gray-400 w-20">面積</div>
