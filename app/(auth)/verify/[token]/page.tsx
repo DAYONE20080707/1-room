@@ -39,7 +39,7 @@ const VerifyPage = async ({ params }: VerifyPageProps) => {
             <div className="mb-5">再度、アカウント登録を実施してください。</div>
 
             <Button asChild className="w-full font-bold">
-              <Link href="/signup/user">アカウント登録</Link>
+              <Link href="/">トップページに戻る</Link>
             </Button>
           </div>
         </>

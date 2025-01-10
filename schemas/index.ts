@@ -71,52 +71,6 @@ export const MainFormSchema = z.object({
   }),
 })
 
-export const OrderFormSchema = z.object({
-  companyName: z.string().min(2, {
-    message: "法人名を入力してください",
-  }),
-  companyPostCode: z.string().regex(postcodeRegex, {
-    message: "有効な郵便番号を入力してください(例: 123-4567)",
-  }),
-  companyPrefecture: z.string().min(2, {
-    message: "都道府県を入力してください",
-  }),
-  companyCity: z.string().min(2, {
-    message: "市区町村を入力してください",
-  }),
-  companyAddress: z.string().min(2, {
-    message: "丁目・番地・部屋番号を入力してください",
-  }),
-  companyPhone: z.string().regex(phoneRegex, {
-    message: "有効な電話番号を入力してください(例: 03-1234-5678)",
-  }),
-  title: z.string().min(2, {
-    message: "タイトルを入力してください",
-  }),
-  budget: z.number().positive({
-    message: "予算は数値で入力してください(例: 100000)",
-  }),
-  planPageNumber: z.number().positive({
-    message: "予定ページ数は数値で入力してください(例: 10)",
-  }),
-  productTypeList: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "制作種類を選択または記入してください",
-    }),
-  otherProductType: z.string().optional(),
-  desiredFunctionTypeList: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "制作種類を選択または記入してください",
-    }),
-  otherDesiredFunctionType: z.string().optional(),
-  requests: z.string().optional(),
-  dueDate: z.date().min(new Date(), {
-    message: "納期は未来の日付を入力してください",
-  }),
-})
-
 export const CompanyInfoSchema = z.object({
   companyName: z.string().min(2, {
     message: "企業名を入力してください",

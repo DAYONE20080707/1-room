@@ -15,7 +15,18 @@ interface NavigationProps {
 const Navigation = ({ user }: NavigationProps) => {
   const pathname = usePathname()
 
-  const backgroundClass = pathname === "/" ? "bg-primary" : "bg-secondary"
+  const backgroundClass = (() => {
+    if (
+      pathname.startsWith("/login") ||
+      pathname.startsWith("/reset-password") ||
+      pathname.startsWith("/signup") ||
+      pathname.startsWith("/signup/admin") ||
+      pathname.startsWith("/verify")
+    ) {
+      return "bg-gray-50"
+    }
+    return pathname === "/" ? "bg-primary" : "bg-secondary"
+  })()
 
   return (
     <header className={`py-5 ${backgroundClass}`}>

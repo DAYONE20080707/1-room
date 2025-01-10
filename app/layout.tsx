@@ -5,7 +5,6 @@ import { M_PLUS_1 } from "next/font/google"
 import AuthProvider from "@/components/providers/AuthProvider"
 import ToastProvider from "@/components/providers/ToastProvider"
 import QueryProvider from "@/components/providers/QueryProvider"
-import ModalProvider from "@/components/providers/ModalProvider"
 
 const mPlus1 = M_PLUS_1({
   weight: ["400", "700", "900"],
@@ -35,7 +34,6 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
         <AuthProvider>
           <QueryProvider>
             <ToastProvider />
-            <ModalProvider />
             {children}
           </QueryProvider>
         </AuthProvider>
