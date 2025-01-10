@@ -18,9 +18,12 @@ import { useRouter } from "next/navigation"
 import { useFormDataStore } from "@/hooks/useFormDataStore"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { formatPostCode } from "@/lib/utils"
+import { useState } from "react"
+import { Loader2 } from "lucide-react"
 
 const Satei1Form = () => {
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
   const { postCode, address1 } = useFormDataStore()
 
   if (!postCode || !address1) {
@@ -43,6 +46,7 @@ const Satei1Form = () => {
 
   // 送信
   const onSubmit = async (values: z.infer<typeof Satei1Schema>) => {
+    setIsLoading(true)
     setFormData({
       blockNumber: values.blockNumber,
       buildingName: values.buildingName,
@@ -53,6 +57,7 @@ const Satei1Form = () => {
       propertyStatus: values.propertyStatus,
     })
     router.push(`/satei2`)
+    setIsLoading(false)
   }
 
   return (
@@ -220,7 +225,9 @@ const Satei1Form = () => {
             <Button
               type="submit"
               className="w-full space-x-2 font-bold rounded-lg"
+              disabled={isLoading}
             >
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               次へ (1/2)
             </Button>
           </div>

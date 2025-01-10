@@ -9,7 +9,7 @@ const ReasonItem = () => {
         <div className="font-bold mb-10 text-lg">
           豊富な実績と⾼い売主様満⾜度
         </div>
-        <div className="bg-accent relative mb-5 rounded-lg">
+        <div className="bg-[#FFEA00] relative mb-5 rounded-lg">
           <div className="absolute -top-7 left-5">
             <Image
               src="/reasonCharacter.svg"

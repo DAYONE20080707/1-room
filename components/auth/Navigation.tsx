@@ -2,7 +2,8 @@
 
 import { User } from "@prisma/client"
 // import { signOut } from "next-auth/react"
-import { Mail, Search } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -12,10 +13,14 @@ interface NavigationProps {
 
 // ナビゲーション
 const Navigation = ({ user }: NavigationProps) => {
+  const pathname = usePathname()
+
+  const backgroundClass = pathname === "/" ? "bg-primary" : "bg-secondary"
+
   return (
-    <header className="pt-5 bg-primary">
+    <header className={`py-5 ${backgroundClass}`}>
       <div className="max-w-screen-xl mx-auto px-3">
-        <div className="px-5 py-4 flex items-center justify-between bg-white rounded-lg">
+        <div className="px-5 py-4 flex items-center justify-between bg-white rounded-lg shadow-md">
           <div>
             <Link href="/">
               <Image

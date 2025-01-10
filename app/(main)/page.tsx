@@ -11,28 +11,28 @@ import Useful from "@/components/main/Useful"
 const Home = () => {
   return (
     <div>
-      <div className="bg-secondary">
-        <Top />
-        <PostCodeForm />
-        <div id="reason">
-          <Reason />
+      <Top />
+      <PostCodeForm />
+      <div id="reason">
+        <Reason />
+      </div>
+      <PostCodeFormCTA />
+      <div className="bg-white">
+        <div id="performance">
+          <Performance />
+        </div>
+        <PostCodeFormCTA />
+        <div id="step">
+          <Step />
+        </div>
+        <div id="useful">
+          <Useful />
+        </div>
+        <div id="question">
+          <Question />
         </div>
         <PostCodeFormCTA />
       </div>
-      <div id="performance">
-        <Performance />
-      </div>
-      <PostCodeFormCTA />
-      <div id="step">
-        <Step />
-      </div>
-      <div id="useful">
-        <Useful />
-      </div>
-      <div id="question">
-        <Question />
-      </div>
-      <PostCodeFormCTA />
     </div>
   )
 }
