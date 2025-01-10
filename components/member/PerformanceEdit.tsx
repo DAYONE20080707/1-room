@@ -12,6 +12,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -23,6 +30,7 @@ import { Performance } from "@prisma/client"
 import ImageUploading, { ImageListType } from "react-images-uploading"
 import Image from "next/image"
 import toast from "react-hot-toast"
+import { WORK_OPTIONS } from "@/lib/utils"
 
 interface PerformanceEditProps {
   performance: Performance
@@ -42,10 +50,10 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
     defaultValues: {
       title: performance.title,
       content: performance.content,
-      url: performance.url || "",
-      industry: performance.industry,
-      genre: performance.genre,
-      scope: performance.scope,
+      price: performance.price,
+      buildingName: performance.buildingName,
+      address: performance.address,
+      work: performance.work,
     },
   })
 
@@ -177,7 +185,7 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
               <FormItem>
                 <FormLabel className="font-bold">タイトル</FormLabel>
                 <FormControl>
-                  <Input placeholder="企業ホームページ制作" {...field} />
+                  <Input placeholder="年間50件の査定実績！" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -193,7 +201,7 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
                 <FormControl>
                   <Textarea
                     rows={5}
-                    placeholder="企業のブランディングを強化するためのホームページを制作しました。"
+                    placeholder="当社は、迅速かつ丁寧な査定サービスを提供しています。"
                     {...field}
                   />
                 </FormControl>
@@ -202,16 +210,14 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
             )}
           />
 
-          <div className="font-bold">画像</div>
-
           <FormField
             control={form.control}
-            name="url"
+            name="price"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-bold">URL</FormLabel>
+                <FormLabel className="font-bold">買取価格</FormLabel>
                 <FormControl>
-                  <Input placeholder="https://example.com" {...field} />
+                  <Input placeholder="2500万円" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -220,12 +226,12 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
 
           <FormField
             control={form.control}
-            name="industry"
+            name="buildingName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-bold">業界</FormLabel>
+                <FormLabel className="font-bold">建物名</FormLabel>
                 <FormControl>
-                  <Input placeholder="IT" {...field} />
+                  <Input placeholder="○○マンション芝公園" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -234,12 +240,12 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
 
           <FormField
             control={form.control}
-            name="genre"
+            name="address"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-bold">ジャンル</FormLabel>
+                <FormLabel className="font-bold">建物住所</FormLabel>
                 <FormControl>
-                  <Input placeholder="Web制作" {...field} />
+                  <Input placeholder="東京都港区芝公園3-5-2" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -248,13 +254,27 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
 
           <FormField
             control={form.control}
-            name="scope"
+            name="work"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-bold">担当範囲</FormLabel>
-                <FormControl>
-                  <Input placeholder="デザイン、開発、SEO対策" {...field} />
-                </FormControl>
+                <FormLabel className="font-bold">対応業務</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="対応業務を選択してください" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {WORK_OPTIONS.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}

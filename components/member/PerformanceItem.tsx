@@ -8,6 +8,7 @@ import { deletePerformanceById } from "@/actions/performance"
 import toast from "react-hot-toast"
 import Image from "next/image"
 import Link from "next/link"
+import { WORK_OPTIONS } from "@/lib/utils"
 
 interface PerformanceItemProps {
   performance: Performance
@@ -58,27 +59,26 @@ const PerformanceItem = ({ performance }: PerformanceItemProps) => {
       </div>
       <div className="col-span-1 space-y-2">
         <div className="font-bold text-xl">{performance.title}</div>
-        {performance.url && (
-          <div className="underline">
-            <a href={performance.url} target="_blank" rel="noreferrer">
-              {performance.url}
-            </a>
+        <div className="pb-3">{performance.content}</div>
+
+        <div className="flex items-center space-x-2">
+          <div className="font-bold w-[100px]">買取価格</div>
+          <div>{performance.price}</div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <div className="font-bold w-[100px]">建物名</div>
+          <div>{performance.buildingName}</div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <div className="font-bold w-[100px]">建物住所</div>
+          <div>{performance.address}</div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <div className="font-bold w-[100px]">対応業務</div>
+          <div>
+            {WORK_OPTIONS.find((option) => option.value === performance.work)
+              ?.label || "未設定"}
           </div>
-        )}
-
-        <div>{performance.content}</div>
-
-        <div className="flex items-center space-x-2">
-          <div className="font-bold w-[100px]">業界</div>
-          <div>{performance.industry}</div>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="font-bold w-[100px]">ジャンル</div>
-          <div>{performance.genre}</div>
-        </div>
-        <div className="flex items-center space-x-2">
-          <div className="font-bold w-[100px]">担当範囲</div>
-          <div>{performance.scope}</div>
         </div>
 
         <div className="flex items-center justify-end">

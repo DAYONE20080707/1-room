@@ -357,3 +357,14 @@ export const formatPostCode = (code: string) => {
   }
   return code
 }
+
+export const WORK_OPTIONS = [
+  {
+    value: "purchase",
+    label: "査定、買取",
+  },
+  { value: "rental", label: "賃貸管理" },
+  { value: "renovation", label: "リフォーム" },
+  { value: "consulting", label: "コンサルティング" },
+  { value: "other", label: "その他" },
+]

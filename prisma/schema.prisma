@@ -242,14 +242,14 @@ model CompanyImage {
 }
 
 model Performance {
-  id       String  @id @default(cuid())
-  title    String
-  content  String
-  imageUrl String?
-  url      String?
-  industry String
-  genre    String
-  scope    String
+  id           String  @id @default(cuid())
+  title        String
+  content      String
+  imageUrl     String?
+  price        String?
+  buildingName String?
+  address      String?
+  work         String?
 
   companyId String
   company   Company @relation(fields: [companyId], references: [id], onDelete: Cascade)

@@ -176,10 +176,10 @@ export const ManagerInfoSchema = z.object({
 export const PerformanceSchema = z.object({
   title: z.string().min(1, { message: "タイトルを入力してください" }),
   content: z.string().min(1, { message: "本文を入力してください" }),
-  url: z.string().optional(),
-  industry: z.string().min(1, { message: "業界を入力してください" }),
-  genre: z.string().min(1, { message: "ジャンルを入力してください" }),
-  scope: z.string().min(1, { message: "担当範囲を入力してください" }),
+  price: z.string().optional(),
+  buildingName: z.string().optional(),
+  address: z.string().optional(),
+  work: z.string().optional(),
 })
 
 export const PostCodeSchema = z.object({
