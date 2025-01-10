@@ -368,3 +368,22 @@ export const WORK_OPTIONS = [
   { value: "consulting", label: "コンサルティング" },
   { value: "other", label: "その他" },
 ]
+
+export const fetchAddress = async (postCode: string) => {
+  try {
+    const response = await fetch(
+      `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${postCode}`
+    )
+    const data = await response.json()
+
+    if (data?.results && data.results.length > 0) {
+      const result = data.results[0]
+      return `${result.address1}${result.address2}${result.address3}`
+    } else {
+      return null
+    }
+  } catch (error) {
+    console.error("住所検索中にエラーが発生しました:", error)
+    return null
+  }
+}

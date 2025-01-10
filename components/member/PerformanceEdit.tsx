@@ -50,10 +50,10 @@ const PerformanceEdit = ({ performance }: PerformanceEditProps) => {
     defaultValues: {
       title: performance.title,
       content: performance.content,
-      price: performance.price,
-      buildingName: performance.buildingName,
-      address: performance.address,
-      work: performance.work,
+      price: performance.price || "",
+      buildingName: performance.buildingName || "",
+      address: performance.address || "",
+      work: performance.work || "",
     },
   })
 

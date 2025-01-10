@@ -15,9 +15,15 @@ import { Input } from "@/components/ui/input"
 import { PostCodeSchema } from "@/schemas"
 import { useRouter } from "next/navigation"
 import { useFormDataStore } from "@/hooks/useFormDataStore"
+import { useState } from "react"
+import { Loader2, Search } from "lucide-react"
+import { fetchAddress } from "@/lib/utils"
+import toast from "react-hot-toast"
+import Image from "next/image"
 
 const PostCodeForm = () => {
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false)
   const setFormData = useFormDataStore((state) => state.setFormData)
   const clearFormData = useFormDataStore((state) => state.clearFormData)
   const form = useForm<z.infer<typeof PostCodeSchema>>({
@@ -28,27 +34,9 @@ const PostCodeForm = () => {
     },
   })
 
-  const fetchAddress = async (postCode: string) => {
-    try {
-      const response = await fetch(
-        `https://zipcloud.ibsnet.co.jp/api/search?zipcode=${postCode}`
-      )
-      const data = await response.json()
-
-      if (data?.results && data.results.length > 0) {
-        const result = data.results[0]
-        return `${result.address1}${result.address2}${result.address3}`
-      } else {
-        return null
-      }
-    } catch (error) {
-      console.error("住所検索中にエラーが発生しました:", error)
-      return null
-    }
-  }
-
   // 送信
   const onSubmit = async (values: z.infer<typeof PostCodeSchema>) => {
+    setIsLoading(true)
     const postCode = `${values.postCode1}${values.postCode2}`
     const address = await fetchAddress(postCode)
 
@@ -57,66 +45,83 @@ const PostCodeForm = () => {
       setFormData({ postCode, address1: address })
       router.push(`/satei1`)
     } else {
-      alert("無効な郵便番号です。正しい郵便番号を入力してください。")
+      toast.error("無効な郵便番号です。正しい郵便番号を入力してください。")
     }
+    setIsLoading(false)
   }
 
   return (
-    <div className="bg-white p-5 rounded-lg border">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-          <div className="flex items-center justify-between">
-            <div className="font-bold text-sm">郵便番号でマンション検索</div>
+    <div className="px-3 max-w-screen-lg mx-auto -mt-20 relative">
+      <div className="absolute -top-5 left-20">
+        <Image
+          src="/message.svg"
+          alt="message"
+          width={209}
+          height={53}
+          priority={true}
+        />
+      </div>
+      <div className="bg-white px-5 md:px-20 py-14 rounded-xl border-4 border-black">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+            <div className="flex items-start justify-between">
+              <div className="font-bold text-sm mt-3">
+                郵便番号でマンション検索
+              </div>
 
-            <FormField
-              control={form.control}
-              name="postCode1"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      className="text-center"
-                      placeholder="000"
-                      maxLength={3}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="postCode1"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        className="text-center bg-secondary border-black rounded h-[44px]"
+                        placeholder="000"
+                        maxLength={3}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <div className="font-bold">-</div>
+              <div className="font-bold mt-2">-</div>
 
-            <FormField
-              control={form.control}
-              name="postCode2"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      className="text-center"
-                      placeholder="0000"
-                      maxLength={4}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+              <FormField
+                control={form.control}
+                name="postCode2"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        className="text-center bg-secondary border-black rounded h-[44px]"
+                        placeholder="0000"
+                        maxLength={4}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
 
-          <div className="space-y-4 w-full">
-            <Button
-              type="submit"
-              className="w-full space-x-2 font-bold rounded-lg"
-            >
-              無料査定スタート
-            </Button>
-          </div>
-        </form>
-      </Form>
+            <div className="space-y-4 w-full">
+              <Button
+                type="submit"
+                className="w-full space-x-2 font-bold rounded-lg"
+                disabled={isLoading}
+              >
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                無料査定スタート
+                <Search className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   )
 }
