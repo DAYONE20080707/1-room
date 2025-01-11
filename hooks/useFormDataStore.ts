@@ -9,7 +9,7 @@ const initialState = {
   buildingArea: "",
   layout: "",
   buildingAge: "",
-  propertyStatus: "vacant",
+  propertyStatus: "空室",
 }
 
 interface FormDataState {

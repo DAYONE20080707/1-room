@@ -12,10 +12,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import {
-  AREA_LIST,
-  extractPrefecture,
-} from "@/lib/utils"
+import { AREA_LIST, extractPrefecture } from "@/lib/utils"
 import {
   Popover,
   PopoverContent,
@@ -45,7 +42,7 @@ interface ProjectAdminDetailProps {
 const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
-  const [isLivingHere, setIsLivingHere] = useState(false)
+  const [isLivingHere, setIsLivingHere] = useState(!project.address2)
 
   const prefecture = extractPrefecture(project.address1)
 
@@ -427,7 +424,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
                 >
                   <FormItem className="flex items-center space-x-2">
                     <FormControl>
-                      <RadioGroupItem value="vacant" />
+                      <RadioGroupItem value="空室" />
                     </FormControl>
                     <FormLabel className="text-sm font-bold pb-2 cursor-pointer">
                       空室
@@ -435,7 +432,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
                   </FormItem>
                   <FormItem className="flex items-center space-x-2">
                     <FormControl>
-                      <RadioGroupItem value="occupied" />
+                      <RadioGroupItem value="居住中" />
                     </FormControl>
                     <FormLabel className="text-sm font-bold pb-2 cursor-pointer">
                       居住中
@@ -443,7 +440,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
                   </FormItem>
                   <FormItem className="flex items-center space-x-2">
                     <FormControl>
-                      <RadioGroupItem value="rented" />
+                      <RadioGroupItem value="賃貸中" />
                     </FormControl>
                     <FormLabel className="text-sm font-bold pb-2 cursor-pointer">
                       賃貸中
@@ -520,7 +517,12 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
           <Checkbox
             id="livingHere"
             checked={isLivingHere}
-            onCheckedChange={(checked) => setIsLivingHere(!!checked)}
+            onCheckedChange={(checked) => {
+              setIsLivingHere(!!checked)
+              if (checked) {
+                form.setValue("address2", "")
+              }
+            }}
           />
           <FormLabel htmlFor="livingHere" className="font-bold text-xs">
             査定物件に住んでいる場合はこちらにチェックをお願いします
@@ -558,7 +560,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
                 >
                   <FormItem className="flex items-center space-x-2">
                     <FormControl>
-                      <RadioGroupItem value="tel" />
+                      <RadioGroupItem value="電話" />
                     </FormControl>
                     <FormLabel className="text-sm font-bold pb-2 cursor-pointer">
                       電話
@@ -566,7 +568,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
                   </FormItem>
                   <FormItem className="flex items-center space-x-2">
                     <FormControl>
-                      <RadioGroupItem value="email" />
+                      <RadioGroupItem value="メール" />
                     </FormControl>
                     <FormLabel className="text-sm font-bold pb-2 cursor-pointer">
                       メール

@@ -131,7 +131,7 @@ const ManagerInfo = ({ user }: ManagerInfoProps) => {
                 <FormControl>
                   <Textarea
                     rows={4}
-                    placeholder="弊社のサービスをご利用いただきありがとうございます。"
+                    placeholder="この度は、弊社の1Rマンション買取サービスにご興味をお持ちいただき、誠にありがとうございます。お客様に最適なご提案をいたしますので、何でもお気軽にご相談ください。"
                     {...field}
                   />
                 </FormControl>
