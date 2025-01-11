@@ -18,10 +18,11 @@ import { Satei2Schema } from "@/schemas"
 import { useFormDataStore } from "@/hooks/useFormDataStore"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useState } from "react"
-import toast from "react-hot-toast"
 import { createProject } from "@/actions/project"
 import { Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { Textarea } from "@/components/ui/textarea"
+import toast from "react-hot-toast"
 
 const Satei2Form = () => {
   const router = useRouter()
@@ -53,6 +54,7 @@ const Satei2Form = () => {
       email: "",
       address2: "",
       contactMethod: "メール",
+      requests: "",
     },
   })
 
@@ -112,7 +114,7 @@ const Satei2Form = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
               <div className="flex items-center">
-                <div className="font-bold text-sm w-40">お名前</div>
+                <div className="font-bold text-sm w-44">お名前</div>
                 <FormField
                   control={form.control}
                   name="name"
@@ -128,7 +130,7 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-40">お名前(フリガナ)</div>
+                <div className="font-bold text-sm w-44">お名前(フリガナ)</div>
                 <FormField
                   control={form.control}
                   name="furigana"
@@ -144,7 +146,7 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-40">電話番号</div>
+                <div className="font-bold text-sm w-44">電話番号</div>
                 <FormField
                   control={form.control}
                   name="tel"
@@ -160,7 +162,7 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-40">メールアドレス</div>
+                <div className="font-bold text-sm w-44">メールアドレス</div>
                 <FormField
                   control={form.control}
                   name="email"
@@ -180,13 +182,18 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-40">ご住所</div>
+                <div className="font-bold text-sm w-44">ご住所</div>
                 <div className="w-full">
                   <div className="flex items-center space-x-2 mb-4">
                     <Checkbox
                       id="livingHere"
                       checked={isLivingHere}
-                      onCheckedChange={(checked) => setIsLivingHere(!!checked)}
+                      onCheckedChange={(checked) => {
+                        setIsLivingHere(!!checked)
+                        if (checked) {
+                          form.setValue("address2", "")
+                        }
+                      }}
                     />
                     <FormLabel
                       htmlFor="livingHere"
@@ -216,7 +223,7 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-40">ご連絡方法</div>
+                <div className="font-bold text-sm w-44">ご連絡方法</div>
                 <FormField
                   control={form.control}
                   name="contactMethod"
@@ -245,6 +252,26 @@ const Satei2Form = () => {
                             </FormLabel>
                           </FormItem>
                         </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              <div className="flex items-center">
+                <div className="font-bold text-sm w-44">ご質問・ご要望など</div>
+                <FormField
+                  control={form.control}
+                  name="requests"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormControl>
+                        <Textarea
+                          rows={3}
+                          placeholder="ご自由にご記入ください"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

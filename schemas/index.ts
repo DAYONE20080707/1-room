@@ -1,3 +1,4 @@
+import { request } from "http"
 import { z } from "zod"
 
 const phoneRegex = /^(0\d{1,4}-\d{1,4}-\d{4})$/
@@ -178,6 +179,7 @@ export const Satei2Schema = z.object({
   contactMethod: z.string().min(1, {
     message: "ご希望連絡方法を入力してください",
   }),
+  requests: z.string().optional(),
 })
 
 export const SateiSchema = z.object({

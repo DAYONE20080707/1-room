@@ -29,6 +29,7 @@ export const createProject = async (values: z.infer<typeof SateiSchema>) => {
         referralFee: 30000,
         maxReferrals: 2,
         publishEndDate: addDays(new Date(), 7),
+        requests: values.requests,
       },
     })
 

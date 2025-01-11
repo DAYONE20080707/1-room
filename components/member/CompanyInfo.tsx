@@ -610,7 +610,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
                 <FormLabel className="font-bold">事業内容</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="ホームページ制作、ソフトウェア開発、ITコンサルティング"
+                    placeholder="1Rマンションの買取、販売、リノベーションを中心に幅広い事業を展開しています。"
                     {...field}
                   />
                 </FormControl>
@@ -626,7 +626,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
                 <FormLabel className="font-bold">自社の特徴</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="高い技術力、柔軟なカスタマイズ対応、豊富な業界知識"
+                    placeholder="迅速な査定、業界トップクラスの買取価格、安心のサポート体制が自慢です。"
                     {...field}
                   />
                 </FormControl>
@@ -641,7 +641,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
               <FormItem>
                 <FormLabel className="font-bold">自社のポイント1</FormLabel>
                 <FormControl>
-                  <Input placeholder="高品質なサービス" {...field} />
+                  <Input placeholder="即日査定でスピーディな対応" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -654,7 +654,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
               <FormItem>
                 <FormLabel className="font-bold">自社のポイント2</FormLabel>
                 <FormControl>
-                  <Input placeholder="顧客満足度No.1" {...field} />
+                  <Input placeholder="幅広いエリアでの対応可能" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -667,7 +667,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
               <FormItem>
                 <FormLabel className="font-bold">自社のポイント3</FormLabel>
                 <FormControl>
-                  <Input placeholder="迅速な対応" {...field} />
+                  <Input placeholder="充実のアフターフォロー" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -681,7 +681,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
                 <FormLabel className="font-bold">自社PR</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="弊社は創業以来、常にお客様の満足を第一に考え、最高のサービスを提供してきました。"
+                    placeholder="創業20年、1Rマンション買取に特化した豊富な経験と実績でお客様に最適なサービスを提供します。"
                     {...field}
                   />
                 </FormControl>
