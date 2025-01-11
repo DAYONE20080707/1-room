@@ -66,7 +66,7 @@ const PostCodeFormCTA = () => {
           </div>
 
           <div className="font-bold text-2xl text-center mb-5">
-            安心・実績の●●●●にお任せください！
+            安心・実績の●●●●●●●●にお任せください！
           </div>
 
           <Form {...form}>

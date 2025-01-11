@@ -7,7 +7,7 @@ const Top = () => {
     <div className="bg-primary pb-20">
       <div className="px-3 max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
         <div className="text-white space-y-3 py-5">
-          <div className="text-xl">1Rマンション売却なら●●●●</div>
+          <div className="text-xl">1Rマンション売却なら●●●●●●●●</div>
           <div className="font-bold text-5xl">無料買取査定</div>
           <div>
             1Rマンション売却をお考えならまずは無料査定依頼！
