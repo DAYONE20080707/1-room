@@ -56,14 +56,14 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
         companyId,
         projectId: project.id,
       })
-      toast.success("案件を受注しました")
+      toast.success("査定を受注しました")
       router.push("/member/project")
       router.refresh()
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message)
       } else {
-        toast.error("案件の受注に失敗しました")
+        toast.error("査定の受注に失敗しました")
       }
     } finally {
       setIsLoading(false)
@@ -78,14 +78,14 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
         companyId,
         projectId: project.id,
       })
-      toast.success("案件を失注しました")
+      toast.success("査定を失注しました")
       router.push("/member/project")
       router.refresh()
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message)
       } else {
-        toast.error("案件の失注に失敗しました")
+        toast.error("査定の失注に失敗しました")
       }
     } finally {
       setIsLoading(false)
@@ -100,14 +100,14 @@ const ProjectDetail = ({ project, companyId }: ProjectDetailProps) => {
         companyId,
         projectId: project.id,
       })
-      toast.success("案件を納品しました")
+      toast.success("査定を納品しました")
       router.push("/member/project")
       router.refresh()
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message)
       } else {
-        toast.error("案件の納品に失敗しました")
+        toast.error("査定の納品に失敗しました")
       }
     } finally {
       setIsLoading(false)

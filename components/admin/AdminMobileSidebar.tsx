@@ -10,7 +10,7 @@ import Link from "next/link"
 // ナビゲーション
 const menuItems = [
   {
-    title: "紹介案件一覧",
+    title: "紹介物件一覧",
     href: "/admin",
   },
   {

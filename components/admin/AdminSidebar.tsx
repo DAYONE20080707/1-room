@@ -4,13 +4,12 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { signOut } from "next-auth/react"
-import { SheetClose } from "@/components/ui/sheet"
 import Link from "next/link"
 
 // ナビゲーション
 const menuItems = [
   {
-    title: "紹介案件一覧",
+    title: "紹介物件一覧",
     href: "/admin",
   },
   {

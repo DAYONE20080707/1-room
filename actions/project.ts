@@ -58,7 +58,7 @@ export const createProject = async (values: z.infer<typeof SateiSchema>) => {
     const subjectToAdmin = "新しい査定が申し込まれました"
     const bodyToAdmin = `
 <div>
-  <p>新しい査定が申し込まれました。以下は申し込まれた案件の情報です。</p>
+  <p>新しい査定が申し込まれました。以下は申し込まれた物件の情報です。</p>
   <ul>
     <li><strong>建物名:</strong> ${project.buildingName || "建物名なし"}</li>
     <li><strong>住所:</strong> ${project.address1}${project.blockNumber}</li>
@@ -110,7 +110,7 @@ export const editProject = async (values: editProjectProps) => {
 
     // isReferralAllowedがfalseからtrueに変更された場合のみ処理を行う
     if (!existingProject?.isReferralAllowed && values.isReferralAllowed) {
-      // 対象となる制作会社を取得
+      // 対象となる査定会社を取得
       const matchingCompanies = await db.company.findMany({
         where: {
           OR: areas.map((area) => ({
@@ -124,12 +124,12 @@ export const editProject = async (values: editProjectProps) => {
         },
       })
 
-      // 対象の制作会社にメールを送信
-      const subject = `【${SITE_NAME}】新しい紹介案件のお知らせ`
+      // 対象の査定会社にメールを送信
+      const subject = `【${SITE_NAME}】新しい紹介査定のお知らせ`
       const bodyTemplate = (name: string) => `
       <div>
       <p>${name}様</p>
-      <p>新しい紹介案件が追加されました。以下は案件の情報です。</p>
+      <p>新しい査定が追加されました。以下は物件の情報です。</p>
       <ul>
         <li><strong>建物名:</strong> ${values.buildingName || "建物名なし"}</li>
         <li><strong>住所:</strong> ${values.address1}${values.blockNumber}</li>
@@ -143,7 +143,7 @@ export const editProject = async (values: editProjectProps) => {
       }/member/project/${id}">こちらをクリックして詳細を確認</a></p>
     </div>
   `
-      // 各制作会社の担当者にメールを送信
+      // 各査定会社の担当者にメールを送信
       for (const company of matchingCompanies) {
         for (const user of company.users) {
           const body = bodyTemplate(user.name)
@@ -183,7 +183,7 @@ export const editProject = async (values: editProjectProps) => {
     })
   } catch (err) {
     console.error(err)
-    throw new Error("案件情報の編集に失敗しました。")
+    throw new Error("査定情報の編集に失敗しました。")
   }
 }
 
@@ -452,10 +452,10 @@ export const negotiateProject = async ({
     })
 
     if (!project) {
-      throw new Error("紹介案件が見つかりません")
+      throw new Error("紹介物件が見つかりません")
     }
 
-    // 紹介案件と会社の関連付けを作成
+    // 紹介物件と会社の関連付けを作成
     await db.projectCompany.create({
       data: {
         projectId,
@@ -504,7 +504,7 @@ export const lostProject = async ({
     })
   } catch (err) {
     console.error(err)
-    throw new Error("案件の失注に失敗しました")
+    throw new Error("査定の失注に失敗しました")
   }
 }
 
@@ -534,7 +534,7 @@ export const receivedProject = async ({
     })
   } catch (err) {
     console.error(err)
-    throw new Error("案件の受注に失敗しました")
+    throw new Error("査定の受注に失敗しました")
   }
 }
 
@@ -559,7 +559,7 @@ export const lostDelivered = async ({
     })
   } catch (err) {
     console.error(err)
-    throw new Error("案件の納品に失敗しました")
+    throw new Error("査定の納品に失敗しました")
   }
 }
 
@@ -573,7 +573,7 @@ export const getProjectsByAdmin = async ({
   statusFilter?: string
 }) => {
   try {
-    // プロジェクト一覧を取得し、各プロジェクトの紹介済み案件の個数を計算
+    // プロジェクト一覧を取得し、各プロジェクトの紹介済み物件の個数を計算
     const projects = await db.project.findMany({
       orderBy: {
         updatedAt: "desc",
@@ -587,7 +587,7 @@ export const getProjectsByAdmin = async ({
       },
     })
 
-    // 紹介済み案件の個数を計算してプロジェクトに追加
+    // 紹介済み物件の個数を計算してプロジェクトに追加
     let projectsWithReferredCount = projects.map((project) => {
       const referredCount = project.projectCompanies.length
       // 受注済みの会社のIDと名前を取得

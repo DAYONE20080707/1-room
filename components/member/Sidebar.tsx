@@ -13,7 +13,7 @@ const menuItems = [
     href: "/member",
   },
   {
-    title: "紹介案件",
+    title: "紹介物件",
     href: "/member/project",
   },
   {

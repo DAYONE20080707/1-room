@@ -332,14 +332,11 @@ export const fetchAddress = async (postCode: string) => {
 }
 
 export const WORK_OPTIONS = [
-  {
-    value: "purchase",
-    label: "査定、買取",
-  },
-  { value: "rental", label: "賃貸管理" },
-  { value: "renovation", label: "リフォーム" },
-  { value: "consulting", label: "コンサルティング" },
-  { value: "other", label: "その他" },
+  "査定、買取",
+  "賃貸管理",
+  "リフォーム",
+  "コンサルティング",
+  "その他",
 ]
 
 export const QUESTIONS = [
