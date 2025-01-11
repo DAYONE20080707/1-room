@@ -1,10 +1,10 @@
 "use client"
 
-import { News } from "@/types"
+import { NewsType } from "@/types"
 import { format } from "date-fns"
 
 interface NewsDetailProps {
-  news: News
+  news: NewsType
 }
 
 const NewsDetail = ({ news }: NewsDetailProps) => {

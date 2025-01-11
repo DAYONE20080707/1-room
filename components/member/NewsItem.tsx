@@ -1,11 +1,11 @@
 "use client"
 
-import { News } from "@/types"
+import { NewsType } from "@/types"
 import { format } from "date-fns"
 import Link from "next/link"
 
 interface NewsItemProps {
-  news: News
+  news: NewsType
 }
 
 const NewsItem = ({ news }: NewsItemProps) => {

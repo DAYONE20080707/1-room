@@ -78,6 +78,7 @@ const Login = () => {
           } else {
             router.push("/member")
           }
+          router.refresh()
         }
       } catch (error) {
         console.error(error)

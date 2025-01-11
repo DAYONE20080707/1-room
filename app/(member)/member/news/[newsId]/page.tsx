@@ -1,6 +1,6 @@
 import NewsDetail from "@/components/member/NewsDetail"
 import { microcms } from "@/lib/microcms"
-import { News } from "@/types"
+import { NewsType } from "@/types"
 import * as cheerio from "cheerio"
 
 interface NewsDetailPageProps {
@@ -12,7 +12,7 @@ interface NewsDetailPageProps {
 const NewsDetailPage = async ({ params }: NewsDetailPageProps) => {
   const { newsId } = params
 
-  const news: News = await microcms.get({
+  const news: NewsType = await microcms.get({
     endpoint: "news",
     contentId: newsId,
     customRequestInit: {

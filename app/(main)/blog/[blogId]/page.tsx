@@ -1,6 +1,6 @@
 import BlogDetail from "@/components/main/BlogDetail"
 import { microcms } from "@/lib/microcms"
-import { Blog } from "@/types"
+import { BlogType } from "@/types"
 import * as cheerio from "cheerio"
 
 interface BlogDetailPageProps {
@@ -12,7 +12,7 @@ interface BlogDetailPageProps {
 const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
   const { blogId } = params
 
-  const blog: Blog = await microcms.get({
+  const blog: BlogType = await microcms.get({
     endpoint: "blogs",
     contentId: blogId,
     customRequestInit: {

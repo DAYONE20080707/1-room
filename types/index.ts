@@ -3,7 +3,7 @@ export interface OrderType {
   email: string
 }
 
-export interface Case {
+export interface CaseType {
   id: string
   thumbnail: {
     url?: string
@@ -16,7 +16,7 @@ export interface Case {
   salesPrice: number
 }
 
-export interface Blog {
+export interface BlogType {
   id: string
   thumbnail: {
     url?: string
@@ -27,7 +27,7 @@ export interface Blog {
   publishedAt: string
 }
 
-export interface News {
+export interface NewsType {
   id: string
   title: string
   content: string

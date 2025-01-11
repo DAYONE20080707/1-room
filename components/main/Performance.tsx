@@ -3,10 +3,10 @@
 import PerformanceItem from "@/components/main/PerformanceItem"
 import { useEffect, useState } from "react"
 import { microcms } from "@/lib/microcms"
-import { Case } from "@/types"
+import { CaseType } from "@/types"
 
 const Performance = () => {
-  const [cases, setCases] = useState<Case[]>([])
+  const [cases, setCases] = useState<CaseType[]>([])
 
   useEffect(() => {
     const fn = async () => {

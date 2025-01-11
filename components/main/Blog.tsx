@@ -4,10 +4,11 @@ import BlogItem from "@/components/main/BlogItem"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 import { microcms } from "@/lib/microcms"
-import { Blog } from "@/types"
+import { BlogType } from "@/types"
+
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([])
+  const [blogs, setBlogs] = useState<BlogType[]>([])
   const [visibleBlogs, setVisibleBlogs] = useState<number>(6)
 
   useEffect(() => {

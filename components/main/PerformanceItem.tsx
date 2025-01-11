@@ -1,10 +1,10 @@
 "use client"
 
-import { Case } from "@/types"
+import { CaseType } from "@/types"
 import Image from "next/image"
 
 interface PerformanceItemProps {
-  case: Case
+  case: CaseType
 }
 
 const PerformanceItem = ({ case: singleCase }: PerformanceItemProps) => {

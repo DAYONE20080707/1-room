@@ -1,11 +1,11 @@
 "use client"
 
-import { Blog } from "@/types"
+import { BlogType } from "@/types"
 import { format } from "date-fns"
 import Image from "next/image"
 
 interface BlogDetailProps {
-  blog: Blog
+  blog: BlogType
 }
 
 const BlogDetail = ({ blog }: BlogDetailProps) => {

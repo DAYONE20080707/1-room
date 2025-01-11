@@ -3,11 +3,11 @@
 import NewsItem from "@/components/member/NewsItem"
 import { useEffect, useState } from "react"
 import { microcms } from "@/lib/microcms"
-import { News } from "@/types"
+import { NewsType } from "@/types"
 import { Button } from "@/components/ui/button"
 
 const News = () => {
-  const [news, setNews] = useState<News[]>([])
+  const [news, setNews] = useState<NewsType[]>([])
   const [visibleNews, setVisibleNews] = useState<number>(3)
 
   useEffect(() => {

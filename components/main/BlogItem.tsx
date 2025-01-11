@@ -2,11 +2,11 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Blog } from "@/types"
+import { BlogType } from "@/types"
 import { format } from "date-fns"
 
 interface BlogItemProps {
-  blog: Blog
+  blog: BlogType
 }
 
 const BlogItem = ({ blog }: BlogItemProps) => {
