@@ -1,28 +1,28 @@
-import BlogDetail from "@/components/main/BlogDetail"
+import NewsDetail from "@/components/member/NewsDetail"
 import { microcms } from "@/lib/microcms"
-import { Blog } from "@/types"
+import { News } from "@/types"
 import * as cheerio from "cheerio"
 
-interface BlogDetailPageProps {
+interface NewsDetailPageProps {
   params: {
-    blogId: string
+    newsId: string
   }
 }
 
-const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
-  const { blogId } = params
+const NewsDetailPage = async ({ params }: NewsDetailPageProps) => {
+  const { newsId } = params
 
-  const blog: Blog = await microcms.get({
-    endpoint: "blogs",
-    contentId: blogId,
+  const news: News = await microcms.get({
+    endpoint: "news",
+    contentId: newsId,
     customRequestInit: {
       cache: "no-store",
     },
   })
 
-  if (blog?.content) {
-    const $ = cheerio.load(blog.content)
-   
+  if (news?.content) {
+    const $ = cheerio.load(news.content)
+
     $("p").each((_, element) => {
       $(element).addClass("my-5")
     })
@@ -78,18 +78,22 @@ const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
     })
 
     // パース後のHTMLを更新
-    blog.content = $.html()
+    news.content = $.html()
   }
 
-  if (!blog) {
-    return <div className="text-center text-sm my-10">ブログがありません</div>
+  if (!news) {
+    return <div className="text-center text-sm my-10">お知らせがありません</div>
   }
 
   return (
-    <div>
-      <BlogDetail blog={blog} />
+    <div className="bg-white md:border w-full rounded md:rounded-r-md p-2 md:p-10 h-full">
+      <div className="text-xl font-bold border-b border-black pb-5 mb-5">
+        {news.title}
+      </div>
+
+      <NewsDetail news={news} />
     </div>
   )
 }
 
-export default BlogDetailPage
+export default NewsDetailPage

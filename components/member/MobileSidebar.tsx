@@ -65,8 +65,8 @@ const MobileSidebar = ({ unreadMessagesCount }: MobileSidebarProps) => {
               className={cn(
                 buttonVariants({ variant: "ghost" }),
                 pathname === item.href
-                  ? `bg-[#F17F7F] hover:bg-[#F17F7F] text-white `
-                  : `hover:bg-[#F17F7F]`,
+                  ? `bg-primary hover:bg-primary text-white `
+                  : `hover:bg-primary`,
                 "justify-start w-full rounded-none py-3 font-bold hover:text-white relative"
               )}
             >
@@ -93,8 +93,8 @@ const MobileSidebar = ({ unreadMessagesCount }: MobileSidebarProps) => {
               className={cn(
                 buttonVariants({ variant: "ghost" }),
                 pathname === item.href
-                  ? `bg-[#F17F7F] hover:bg-[#F17F7F] text-white `
-                  : `hover:bg-[#F17F7F]`,
+                  ? `bg-primary hover:bg-primary text-white `
+                  : `hover:bg-primary`,
                 "justify-start w-full rounded-none py-3 font-bold hover:text-white"
               )}
             >
@@ -106,7 +106,7 @@ const MobileSidebar = ({ unreadMessagesCount }: MobileSidebarProps) => {
         <div
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            ` font-bold cursor-pointer justify-start w-full rounded-none py-3 hover:bg-[#F17F7F] hover:text-white`
+            ` font-bold cursor-pointer justify-start w-full rounded-none py-3 hover:bg-primary hover:text-white`
           )}
           onClick={() => {
             if (!window.confirm("ログアウトしますが、宜しいですか？")) {

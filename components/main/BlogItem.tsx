@@ -32,7 +32,7 @@ const BlogItem = ({ blog }: BlogItemProps) => {
           <div className="border border-primary rounded-full text-primary text-xs px-2 py-0.5 w-32 text-center">
             {blog.category}
           </div>
-          <div className="font-bold">{blog.title}</div>
+          <div className="font-bold hover:underline">{blog.title}</div>
         </div>
       </div>
     </Link>

@@ -16,6 +16,7 @@ import Link from "next/link"
 import Logout from "@/components/auth/Logout"
 import AdminSidebar from "@/components/admin/AdminSidebar"
 import AdminMobileSidebar from "@/components/admin/AdminMobileSidebar"
+import { signOut } from "next-auth/react"
 
 interface NavigationAdminProps {
   userName: string
@@ -68,13 +69,18 @@ const NavigationAdmin = ({ userName }: NavigationAdminProps) => {
               </div>
 
               <div>
-                <div className="px-5 py-2 text-sm border border-black rounded-full text-center mx-5 hover:bg-gray-50 cursor-pointer">
-                  <Logout />
+                <div
+                  className="px-5 py-2 text-sm border border-black hover:border-primary rounded-full text-center mx-5 hover:bg-primary hover:text-white cursor-pointer"
+                  onClick={() => {
+                    signOut({ callbackUrl: "/" })
+                  }}
+                >
+                  ログアウト
                 </div>
 
                 <div className="p-5 text-sm">
                   <Link href="/">
-                    <div className="border border-black rounded-full p-2 text-center hover:bg-gray-50">
+                    <div className="border border-black hover:border-primary rounded-full p-2 text-center hover:bg-primary hover:text-white">
                       トップページ
                     </div>
                   </Link>
@@ -105,13 +111,18 @@ const NavigationAdmin = ({ userName }: NavigationAdminProps) => {
         </div>
 
         <div>
-          <div className="px-5 py-2 text-sm border border-black rounded-full text-center mx-5 hover:bg-gray-50 cursor-pointer">
-            <Logout />
+          <div
+            className="px-5 py-2 text-sm border border-black hover:border-primary rounded-full text-center mx-5 hover:bg-primary hover:text-white cursor-pointer"
+            onClick={() => {
+              signOut({ callbackUrl: "/" })
+            }}
+          >
+            ログアウト
           </div>
 
           <div className="p-5 text-sm">
             <Link href="/">
-              <div className="border border-black rounded-full p-2 text-center hover:bg-gray-50">
+              <div className="border border-black hover:border-primary rounded-full p-2 text-center hover:bg-primary hover:text-white">
                 トップページ
               </div>
             </Link>

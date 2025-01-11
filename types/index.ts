@@ -26,3 +26,10 @@ export interface Blog {
   category: string
   publishedAt: string
 }
+
+export interface News {
+  id: string
+  title: string
+  content: string
+  publishedAt: string
+}
