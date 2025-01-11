@@ -5,10 +5,10 @@ import Question from "@/components/main/Question"
 import Reason from "@/components/main/Reason"
 import Step from "@/components/main/Step"
 import Top from "@/components/main/Top"
-import Useful from "@/components/main/Useful"
+import Blog from "@/components/main/Blog"
 
 // メインページ
-const Home = () => {
+const Home = async () => {
   return (
     <div>
       <Top />
@@ -25,8 +25,8 @@ const Home = () => {
         <div id="step">
           <Step />
         </div>
-        <div id="useful">
-          <Useful />
+        <div id="blog">
+          <Blog />
         </div>
         <div id="question">
           <Question />
