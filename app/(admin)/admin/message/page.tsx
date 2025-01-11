@@ -26,7 +26,7 @@ const MessagePage = async () => {
       </div>
 
       {companies.length === 0 ? (
-        <div>紹介案件はありません</div>
+        <div>紹介物件はありません</div>
       ) : (
         <table className="min-w-full border-collapse border">
           <thead>

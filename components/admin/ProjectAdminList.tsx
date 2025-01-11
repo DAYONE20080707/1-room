@@ -69,7 +69,7 @@ const ProjectAdminList = ({ projects, pageCount }: ProjectAdminListProps) => {
       </div>
 
       {projects.length === 0 ? (
-        <div>紹介案件はありません</div>
+        <div>紹介物件はありません</div>
       ) : (
         <>
           <div className="space-y-5">

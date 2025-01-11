@@ -6,9 +6,12 @@ import Reason from "@/components/main/Reason"
 import Step from "@/components/main/Step"
 import Top from "@/components/main/Top"
 import Blog from "@/components/main/Blog"
+import { getCompanyCountByPrefecture } from "@/actions/company"
+import CompanySearch from "@/components/main/CompanySearch"
 
 // メインページ
 const Home = async () => {
+
   return (
     <div>
       <Top />
@@ -28,10 +31,13 @@ const Home = async () => {
         <div id="blog">
           <Blog />
         </div>
+        <div>
+          <CompanySearch />
+        </div>
+        <PostCodeFormCTA />
         <div id="question">
           <Question />
         </div>
-        <PostCodeFormCTA />
       </div>
     </div>
   )

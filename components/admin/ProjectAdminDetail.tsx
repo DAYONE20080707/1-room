@@ -96,21 +96,21 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
 
       const area = sortedAreaList.join("、")
 
-      // 案件情報編集
+      // 査定情報編集
       await editProject({
         ...values,
         id: project.id,
         area,
       })
 
-      toast.success("案件情報を編集しました")
+      toast.success("査定情報を編集しました")
       router.push("/admin")
       router.refresh()
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message)
       } else {
-        toast.error("案件情報の編集に失敗しました")
+        toast.error("査定情報の編集に失敗しました")
       }
     } finally {
       setIsLoading(false)

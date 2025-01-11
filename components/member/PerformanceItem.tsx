@@ -8,7 +8,6 @@ import { deletePerformanceById } from "@/actions/performance"
 import toast from "react-hot-toast"
 import Image from "next/image"
 import Link from "next/link"
-import { WORK_OPTIONS } from "@/lib/utils"
 
 interface PerformanceItemProps {
   performance: Performance
@@ -48,12 +47,13 @@ const PerformanceItem = ({ performance }: PerformanceItemProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10 text-sm">
       <div className="col-span-1">
-        <div className="aspect-[16/9] relative overflow-hidden">
+        <div className="aspect-w-16 aspect-h-9 relative mb-5">
           <Image
-            fill
             src={performance.imageUrl || "/noThumbnail.png"}
             alt="thumbnail"
-            className="object-cover rounded"
+            fill
+            priority={false}
+            className="rounded object-cover"
           />
         </div>
       </div>
@@ -75,10 +75,7 @@ const PerformanceItem = ({ performance }: PerformanceItemProps) => {
         </div>
         <div className="flex items-center space-x-2">
           <div className="font-bold w-[100px]">対応業務</div>
-          <div>
-            {WORK_OPTIONS.find((option) => option.value === performance.work)
-              ?.label || "未設定"}
-          </div>
+          <div>{performance.work}</div>
         </div>
 
         <div className="flex items-center justify-end">

@@ -26,11 +26,11 @@ const MemberPage = async () => {
       <News />
 
       <div className="text-xl font-bold border-b border-black pb-5 mb-5">
-        対応中案件
+        対応中物件
       </div>
 
       {projects.length === 0 ? (
-        <div>対応中の案件はありません</div>
+        <div>対応中の物件はありません</div>
       ) : (
         projects.map((project) => (
           <ProjectItem key={project.id} project={project} />

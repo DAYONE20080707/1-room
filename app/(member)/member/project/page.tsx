@@ -39,7 +39,7 @@ const ProjectPage = async ({ searchParams }: ProjectPageProps) => {
   return (
     <div className="bg-white md:border w-full rounded md:rounded-r-md p-2 md:p-10 h-full">
       <div className="text-xl font-bold border-b border-black pb-5 mb-5">
-        紹介案件
+        紹介物件
       </div>
 
       <ProjectList projects={projects} pageCount={pageCount} />

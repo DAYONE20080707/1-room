@@ -60,7 +60,7 @@ const ProjectList = ({ projects, pageCount }: ProjectListProps) => {
       </div>
 
       {projects.length === 0 ? (
-        <div className="">紹介案件がありません</div>
+        <div className="">紹介物件がありません</div>
       ) : (
         <>
           <div className="space-y-5">
