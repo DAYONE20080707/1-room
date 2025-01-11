@@ -13,17 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import {
   AREA_LIST,
-  PREFECTURES,
-  PRODUCT_TYPE_LIST,
-  DESIRED_FUNCTION_LIST,
   extractPrefecture,
 } from "@/lib/utils"
 import {

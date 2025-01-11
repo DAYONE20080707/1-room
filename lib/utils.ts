@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const projectPerPage = 20
 
-export const SITE_NAME = "査定サイト"
+export const SITE_NAME = "1Rマンション査定"
 
 export const PREFECTURES = [
   "北海道",
@@ -63,52 +63,6 @@ export const extractPrefecture = (address: string) => {
   const prefecture = PREFECTURES.find((pref) => address.startsWith(pref))
   return prefecture || null
 }
-
-export const PRODUCT_TYPE_LIST = [
-  {
-    id: "1",
-    label: "新規ホームページ制作",
-  },
-  {
-    id: "2",
-    label: "ホームページリニューアル",
-  },
-  {
-    id: "3",
-    label: "DX運用",
-  },
-  {
-    id: "4",
-    label: "アプリ開発",
-  },
-  {
-    id: "5",
-    label: "その他",
-  },
-] as const
-
-export const DESIRED_FUNCTION_LIST = [
-  {
-    id: "1",
-    label: "お問い合わせフォーム",
-  },
-  {
-    id: "2",
-    label: "ブログ・お知らせ",
-  },
-  {
-    id: "3",
-    label: "お買い物カート",
-  },
-  {
-    id: "4",
-    label: "セキュリティ",
-  },
-  {
-    id: "5",
-    label: "その他",
-  },
-] as const
 
 export const prefectureMapping: { [key: string]: string } = {
   hokkaido: "北海道",
@@ -358,17 +312,6 @@ export const formatPostCode = (code: string) => {
   return code
 }
 
-export const WORK_OPTIONS = [
-  {
-    value: "purchase",
-    label: "査定、買取",
-  },
-  { value: "rental", label: "賃貸管理" },
-  { value: "renovation", label: "リフォーム" },
-  { value: "consulting", label: "コンサルティング" },
-  { value: "other", label: "その他" },
-]
-
 export const fetchAddress = async (postCode: string) => {
   try {
     const response = await fetch(
@@ -387,3 +330,54 @@ export const fetchAddress = async (postCode: string) => {
     return null
   }
 }
+
+export const WORK_OPTIONS = [
+  {
+    value: "purchase",
+    label: "査定、買取",
+  },
+  { value: "rental", label: "賃貸管理" },
+  { value: "renovation", label: "リフォーム" },
+  { value: "consulting", label: "コンサルティング" },
+  { value: "other", label: "その他" },
+]
+
+export const QUESTIONS = [
+  {
+    id: "1",
+    question:
+      "現在居住中です。売却が決まるとすぐに引っ越さなければなりませんか？",
+    answer:
+      "いいえ。お引渡しの日程については、お客様のご都合に合わせて柔軟に調整可能です。売却後も一定期間お住まいを続けるプランもご提案できますので、ご安心ください。",
+  },
+  {
+    id: "2",
+    question: "古い建物が建っています。そのままの状態で売却できますか？",
+    answer:
+      "はい。そのままの状態で売却可能です。古い建物やリフォームが必要な物件でも対応可能ですので、現状のままご相談ください。",
+  },
+  {
+    id: "3",
+    question: "遠方に住んでおり、何度も足を運ぶことができないのですが…",
+    answer:
+      "ご安心ください。オンラインや郵送での手続きを完了させることが可能です。必要に応じて営業担当者が現地に伺うこともできますので、遠方にお住まいの方でもスムーズに進められます。",
+  },
+  {
+    id: "4",
+    question: "査定を依頼すると必ず売らなければなりませんか？",
+    answer:
+      "いいえ。査定は無料で、売却の義務は一切ありません。査定結果をご確認いただき、納得いただいた場合にのみ売却手続きを進めていただけます。",
+  },
+  {
+    id: "5",
+    question: "買取可能なエリアは？",
+    answer:
+      "買取可能エリアは主に首都圏、大都市圏が中心ですが、エリア外の物件についてもご相談可能です。詳細はお気軽にお問い合わせください。",
+  },
+  {
+    id: "6",
+    question: "どのような物件が買取の対象となりますか？",
+    answer:
+      "一部屋のみのワンルームマンションからファミリー向けの広い物件まで、幅広く対応しています。築年数や状態にかかわらずご相談可能ですので、まずはお気軽にお問い合わせください。",
+  },
+]

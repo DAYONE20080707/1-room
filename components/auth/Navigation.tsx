@@ -45,11 +45,11 @@ const Navigation = ({ user }: NavigationProps) => {
           </div>
 
           <div className="flex items-center space-x-3 text-sm">
-            <Link href="#reason">選ばれる理由</Link>
-            <Link href="#performance">買取実績</Link>
-            <Link href="#step">売却の流れ</Link>
-            <Link href="#useful">お役立ち資料</Link>
-            <Link href="#question">よくある質問</Link>
+            <Link href="#reason" className="hidden md:block">選ばれる理由</Link>
+            <Link href="#performance" className="hidden md:block">買取実績</Link>
+            <Link href="#step" className="hidden md:block">売却の流れ</Link>
+            <Link href="#useful" className="hidden md:block">お役立ち資料</Link>
+            <Link href="#question" className="hidden md:block">よくある質問</Link>
             <div className="text-xs border-2 border-primary rounded px-3 py-1.5 cursor-pointer text-primary font-bold hover:bg-primary hover:text-white">
               <Link href="/" className="flex items-center space-x-1">
                 <Mail className="w-4 h-4" />
