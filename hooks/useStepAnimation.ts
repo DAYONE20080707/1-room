@@ -16,8 +16,8 @@ const useStepAnimation = (targetSelector: string) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: steps[0], // 最初の要素をトリガーとして設定
-          start: 'top 50%', // トリガーポイント
-          end: 'top 20%', // 終了位置
+          start: 'top 150%', // トリガーポイントを調整
+          end: 'bottom 50%',
           markers: true, // デバッグ用マーカー
           toggleActions: 'play none none none', // アニメーションの動作設定
           once: true, // 一度だけ実行

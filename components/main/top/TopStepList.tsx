@@ -6,10 +6,10 @@ import TopStepCard from './TopStepCard'
 
 const TopStepList = () => {
   // ステップアニメーションを適用
-  useStepAnimation('.solution-card')
+  // useStepAnimation('.step', '#step')
 
   return (
-    <div className="px-3 max-w-screen-xl mx-auto py-20">
+    <div id="step" className="px-3 max-w-screen-xl mx-auto py-20">
       <section>
         <h2 className="text-primary text-xl mb-3">不動産売却の流れ</h2>
         <p className="font-bold text-2xl mb-10">かんたん00ステップで売却</p>
@@ -17,7 +17,7 @@ const TopStepList = () => {
 
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-10">
         <div>
-          <div className="solution-card">
+          <div className="step">
             <TopStepCard
               stepNumber="Step 01"
               stepTitle="売却査定依頼"
@@ -25,7 +25,7 @@ const TopStepList = () => {
               stepBody="お客様の物件情報をもとに、専門家が迅速かつ正確に査定を行い、最適な価格をご提示します。"
             />
           </div>
-          <div className="solution-card">
+          <div className="step">
             <TopStepCard
               stepNumber="Step 02"
               stepTitle="査定結果ご報告"
@@ -33,7 +33,7 @@ const TopStepList = () => {
               stepBody="査定結果を分かりやすくご報告し、価格の根拠や今後の手続きについて丁寧にご説明いたします。"
             />
           </div>
-          <div className="solution-card">
+          <div className="step">
             <TopStepCard
               stepNumber="Step 03"
               stepTitle="売買契約条件の調整・締結"
@@ -41,7 +41,7 @@ const TopStepList = () => {
               stepBody="売買契約条件の調整を行い、お客様のニーズに沿った契約を締結します。安心してご利用いただけます。"
             />
           </div>
-          <div className="solution-card">
+          <div className="step">
             <TopStepCard
               stepNumber="Step 04"
               stepTitle="決済・物件引き渡し"
