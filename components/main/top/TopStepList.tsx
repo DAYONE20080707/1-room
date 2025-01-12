@@ -6,7 +6,7 @@ import TopStepCard from './TopStepCard'
 
 const TopStepList = () => {
   // ステップアニメーションを適用
-  // useStepAnimation('.step', '#step')
+  useStepAnimation('.step', '#performance')
 
   return (
     <div id="step" className="px-3 max-w-screen-xl mx-auto py-20">
