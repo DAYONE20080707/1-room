@@ -1,5 +1,5 @@
 import { getCompanyWithPerformanceById } from "@/actions/company"
-import CompanyDetail from "@/components/main/CompanyDetail"
+import CompanyDetail from "@/components/main/blog/comanay/CompanyDetail"
 
 interface CompanyPageProps {
   params: {

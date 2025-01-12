@@ -2,19 +2,19 @@
 
 import Image from "next/image"
 
-const Top = () => {
+const TopFirstView = () => {
   return (
     <div className="bg-primary pb-20">
       <div className="px-3 max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
         <div className="text-white space-y-3 py-5">
-          <div className="text-xl">1Rマンション売却なら●●●●●●●●</div>
-          <div className="font-bold text-5xl">無料買取査定</div>
+          <div className="text-xl">1Rマンションの売却なら、まずは無料査定!</div>
+          <div className="font-bold text-5xl">１番高い査定額がわかる</div>
           <div>
-            1Rマンション売却をお考えなら
+            1Rマンションの売却をお考えなら
             <br className="block md:hidden" />
-            まずは無料査定依頼！
+            一括で査定を依頼する！
             <br />
-            フォームに入力するだけでかんたん1分で査定。
+            フォームに入力するだけで、かんたん1分で査定。
           </div>
         </div>
         <div>
@@ -31,4 +31,4 @@ const Top = () => {
   )
 }
 
-export default Top
+export default TopFirstView

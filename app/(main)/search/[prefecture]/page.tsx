@@ -1,5 +1,5 @@
 import { getCompaniesByPrefecture } from "@/actions/company"
-import CompanySearchItem from "@/components/main/CompanySearchItem"
+import CompanySearchItem from "@/components/main/blog/comanay/CompanySearchItem"
 import { prefectureMapping } from "@/lib/utils"
 
 interface SearchPageProps {

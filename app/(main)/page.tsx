@@ -3,18 +3,17 @@ import PostCodeForm from "@/components/main/PostCodeForm"
 import PostCodeFormCTA from "@/components/main/PostCodeFormCTA"
 import Question from "@/components/main/Question"
 import Reason from "@/components/main/Reason"
-import Step from "@/components/main/Step"
-import Top from "@/components/main/Top"
-import Blog from "@/components/main/Blog"
+import TopStepList from "@/components/main/top/TopStepList"
+import TopFirstView from "@/components/main/top/TopFirstView"
+import Blog from "@/components/main/blog/Blog"
 import { getCompanyCountByPrefecture } from "@/actions/company"
-import CompanySearch from "@/components/main/CompanySearch"
+import CompanySearch from "@/components/main/blog/comanay/CompanySearch"
 
 // メインページ
 const Home = async () => {
-
   return (
     <div>
-      <Top />
+      <TopFirstView />
       <PostCodeForm />
       <div id="reason">
         <Reason />
@@ -26,7 +25,7 @@ const Home = async () => {
         </div>
         <PostCodeFormCTA />
         <div id="step">
-          <Step />
+          <TopStepList />
         </div>
         <div id="blog">
           <Blog />

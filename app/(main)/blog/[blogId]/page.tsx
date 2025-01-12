@@ -1,4 +1,4 @@
-import BlogDetail from "@/components/main/BlogDetail"
+import BlogDetail from "@/components/main/blog/BlogDetail"
 import { microcms } from "@/lib/microcms"
 import { BlogType } from "@/types"
 import * as cheerio from "cheerio"
@@ -22,7 +22,7 @@ const BlogDetailPage = async ({ params }: BlogDetailPageProps) => {
 
   if (blog?.content) {
     const $ = cheerio.load(blog.content)
-   
+
     $("p").each((_, element) => {
       $(element).addClass("my-5")
     })

@@ -1,6 +1,6 @@
 "use client"
 
-import BlogItem from "@/components/main/BlogItem"
+import BlogItem from "@/components/main/blog/BlogItem"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 import { microcms } from "@/lib/microcms"

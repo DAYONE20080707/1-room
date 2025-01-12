@@ -30,6 +30,7 @@
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.424.0",
     "microcms-js-sdk": "^3.1.2",
     "next": "14.2.5",

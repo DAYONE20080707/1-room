@@ -3,7 +3,7 @@
 import { Company, User, Performance, CompanyImage } from "@prisma/client"
 import { format } from "date-fns"
 import Image from "next/image"
-import CompanyPerformanceItem from "@/components/main/CompanyPerformanceItem"
+import CompanyPerformanceItem from "@/components/main/blog/comanay/CompanyPerformanceItem"
 import ImageSlider from "@/components/main/ImageSlider"
 
 interface CompanyDetailProps {
