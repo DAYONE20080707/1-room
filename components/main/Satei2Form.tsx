@@ -96,7 +96,7 @@ const Satei2Form = () => {
   }
 
   return (
-    <div className="bg-white border-2 border-black rounded-lg p-10">
+    <div className="bg-white border-2 border-black rounded-lg p-3 md:p-10">
       {isComplete ? (
         <div className="text-center">
           <div className="font-bold text-xl mb-10">
@@ -108,7 +108,9 @@ const Satei2Form = () => {
       ) : (
         <>
           <div className="text-center font-bold text-xl mb-10">
-            査定のご連絡先についてご入力下さい
+            査定のご連絡先について
+            <br className="block md:hidden" />
+            ご入力下さい
           </div>
 
           <Form {...form}>
@@ -130,7 +132,11 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-44">お名前(フリガナ)</div>
+                <div className="font-bold text-sm w-44">
+                  お名前
+                  <br className="block md:hidden" />
+                  (フリガナ)
+                </div>
                 <FormField
                   control={form.control}
                   name="furigana"
@@ -260,7 +266,11 @@ const Satei2Form = () => {
               </div>
 
               <div className="flex items-center">
-                <div className="font-bold text-sm w-44">ご質問・ご要望など</div>
+                <div className="font-bold text-sm w-44">
+                  ご質問・
+                  <br className="block md:hidden" />
+                  ご要望など
+                </div>
                 <FormField
                   control={form.control}
                   name="requests"
