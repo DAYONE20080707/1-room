@@ -138,7 +138,7 @@ const Satei1Form = () => {
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormControl>
-                    <Input placeholder="80m2" {...field} />
+                    <Input placeholder="50m2" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -154,7 +154,7 @@ const Satei1Form = () => {
               render={({ field }) => (
                 <FormItem className="w-full">
                   <FormControl>
-                    <Input placeholder="2LDK" {...field} />
+                    <Input placeholder="1K" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

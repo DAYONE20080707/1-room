@@ -375,7 +375,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
             <FormItem>
               <FormLabel className="font-bold">建物(占有)面積</FormLabel>
               <FormControl>
-                <Input placeholder="80m2" {...field} />
+                <Input placeholder="50m2" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -389,7 +389,7 @@ const ProjectAdminDetail = ({ project }: ProjectAdminDetailProps) => {
             <FormItem>
               <FormLabel className="font-bold">間取り</FormLabel>
               <FormControl>
-                <Input placeholder="2LDK" {...field} />
+                <Input placeholder="1K" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
