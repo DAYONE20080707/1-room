@@ -19,7 +19,7 @@ const CompanyDetail = ({ company }: CompanyDetailProps) => {
   const imageUrls = company.images.map((image) => image.url)
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-5 md:space-y-10">
       <div className="text-center font-bold text-2xl">
         {company.companyName}
       </div>

@@ -65,52 +65,56 @@ const PostCodeFormCTA = () => {
             />
           </div>
 
-          <div className="font-bold text-2xl text-center mb-5">
-            安心・実績の●●●●●●●●にお任せください！
+          <div className="font-bold text-lg md:text-2xl text-center mb-5">
+            安心・実績の●●●●●●●●に
+            <br className="block md:hidden" />
+            お任せください！
           </div>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="max-w-screen-md mx-auto flex gap-5 items-start">
-                <FormField
-                  control={form.control}
-                  name="postCode1"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input
-                          className="text-center bg-secondary border-black rounded h-[44px]"
-                          placeholder="000"
-                          maxLength={3}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <div className="max-w-screen-md mx-auto flex flex-wrap gap-5 items-start">
+                <div className="flex gap-2">
+                  <FormField
+                    control={form.control}
+                    name="postCode1"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            className="text-center bg-secondary border-black rounded h-[44px]"
+                            placeholder="000"
+                            maxLength={3}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <div className="font-bold text-center mt-2">-</div>
+                  <div className="font-bold text-center mt-2">-</div>
 
-                <FormField
-                  control={form.control}
-                  name="postCode2"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input
-                          className="text-center bg-secondary border-black rounded h-[44px]"
-                          placeholder="0000"
-                          maxLength={4}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                  <FormField
+                    control={form.control}
+                    name="postCode2"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            className="text-center bg-secondary border-black rounded h-[44px]"
+                            placeholder="0000"
+                            maxLength={4}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
-                <div className="w-52">
+                <div className="w-full md:w-52 order-2 md:order-none">
                   <Button
                     type="submit"
                     className="w-full space-x-2 font-bold rounded-lg"
