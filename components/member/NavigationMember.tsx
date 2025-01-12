@@ -53,28 +53,27 @@ const NavigationMember = ({
             <SheetHeader>
               <SheetTitle></SheetTitle>
             </SheetHeader>
-            <div className="bg-white flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-center p-5">
-                  <SheetClose asChild>
-                    <Link href="/member">
-                      <div className="font-bold">{companyName}</div>
-                    </Link>
-                  </SheetClose>
-                </div>
 
-                <div className="pb-5">
-                  <div className="text-sm font-bold text-center">
-                    {userName} 様
-                  </div>
-                </div>
-
-                <div className="border-b border-gray-300"></div>
-
-                <MobileSidebar unreadMessagesCount={unreadMessagesCount} />
+            <div className="bg-white overflow-y-auto max-h-screen">
+              <div className="flex items-center justify-center p-5">
+                <SheetClose asChild>
+                  <Link href="/member">
+                    <div className="font-bold">{companyName}</div>
+                  </Link>
+                </SheetClose>
               </div>
 
-              <div>
+              <div className="pb-5">
+                <div className="text-sm font-bold text-center">
+                  {userName} 様
+                </div>
+              </div>
+
+              <div className="border-b border-gray-300"></div>
+
+              <MobileSidebar unreadMessagesCount={unreadMessagesCount} />
+
+              <div className="h-[400px]">
                 <div
                   className="px-5 py-2 text-sm border border-black hover:border-primary rounded-full text-center mx-5 hover:bg-primary hover:text-white cursor-pointer"
                   onClick={() => {
