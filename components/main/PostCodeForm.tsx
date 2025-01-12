@@ -61,11 +61,11 @@ const PostCodeForm = () => {
           priority={true}
         />
       </div>
-      <div className="bg-white px-5 md:px-20 py-14 rounded-xl border-4 border-black">
+      <div className="bg-white px-3 md:px-20 py-10 md:py-14 rounded-xl border-4 border-black">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <div className="flex items-start justify-between">
-              <div className="font-bold text-sm mt-3">
+              <div className="font-bold text-sm mt-3 hidden md:block">
                 郵便番号でマンション検索
               </div>
 
@@ -87,7 +87,7 @@ const PostCodeForm = () => {
                 )}
               />
 
-              <div className="font-bold mt-2">-</div>
+              <div className="font-bold mt-2 px-2">-</div>
 
               <FormField
                 control={form.control}

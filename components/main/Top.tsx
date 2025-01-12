@@ -10,7 +10,9 @@ const Top = () => {
           <div className="text-xl">1Rマンション売却なら●●●●●●●●</div>
           <div className="font-bold text-5xl">無料買取査定</div>
           <div>
-            1Rマンション売却をお考えならまずは無料査定依頼！
+            1Rマンション売却をお考えなら
+            <br className="block md:hidden" />
+            まずは無料査定依頼！
             <br />
             フォームに入力するだけでかんたん1分で査定。
           </div>

@@ -26,13 +26,13 @@ const BlogItem = ({ blog }: BlogItemProps) => {
         </div>
 
         <div className="space-y-2 col-span-2">
-          <div className="text-sm">
+          <div className="text-xs md:text-sm">
             {format(blog.publishedAt, "yyyy/MM/dd")}
           </div>
-          <div className="border border-primary rounded-full text-primary text-xs px-2 py-0.5 w-32 text-center">
+          <div className="font-bold hover:underline">{blog.title}</div>
+          <div className="border border-primary rounded-full text-primary text-xs px-1 md:px-2 py-0.5 w-32 text-center">
             {blog.category}
           </div>
-          <div className="font-bold hover:underline">{blog.title}</div>
         </div>
       </div>
     </Link>

@@ -6,7 +6,6 @@ import { useEffect, useState } from "react"
 import { microcms } from "@/lib/microcms"
 import { BlogType } from "@/types"
 
-
 const Blog = () => {
   const [blogs, setBlogs] = useState<BlogType[]>([])
   const [visibleBlogs, setVisibleBlogs] = useState<number>(6)
@@ -43,7 +42,7 @@ const Blog = () => {
           よりスマートな1Rマンション売却を
         </div>
 
-        <div className="bg-white rounded-lg p-5 md:p-10 mb-10">
+        <div className="bg-white rounded-lg p-3 md:p-10 mb-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
             {blogs.slice(0, visibleBlogs).map((blog) => (
               <BlogItem key={blog.id} blog={blog} />

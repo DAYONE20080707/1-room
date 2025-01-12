@@ -31,13 +31,13 @@ const Navigation = ({ user }: NavigationProps) => {
   return (
     <header className={`py-5 ${backgroundClass}`}>
       <div className="max-w-screen-xl mx-auto px-3">
-        <div className="px-5 py-4 flex items-center justify-between bg-white rounded-lg shadow-md">
+        <div className="px-2 md:px-5 py-2 md:py-4 flex items-center justify-between bg-white rounded-lg shadow-md">
           <div>
             <Link href="/">
               <Image
                 src="/logo.png"
                 alt="logo"
-                width={180}
+                width={160}
                 height={36}
                 priority={true}
               />
@@ -45,21 +45,31 @@ const Navigation = ({ user }: NavigationProps) => {
           </div>
 
           <div className="flex items-center space-x-3 text-sm">
-            <Link href="#reason" className="hidden md:block">選ばれる理由</Link>
-            <Link href="#performance" className="hidden md:block">買取実績</Link>
-            <Link href="#step" className="hidden md:block">売却の流れ</Link>
-            <Link href="#blog" className="hidden md:block">お役立ち資料</Link>
-            <Link href="#question" className="hidden md:block">よくある質問</Link>
-            <div className="text-xs border-2 border-primary rounded px-3 py-1.5 cursor-pointer text-primary font-bold hover:bg-primary hover:text-white">
+            <Link href="#reason" className="hidden md:block">
+              選ばれる理由
+            </Link>
+            <Link href="#performance" className="hidden md:block">
+              買取実績
+            </Link>
+            <Link href="#step" className="hidden md:block">
+              売却の流れ
+            </Link>
+            <Link href="#blog" className="hidden md:block">
+              お役立ち資料
+            </Link>
+            <Link href="#question" className="hidden md:block">
+              よくある質問
+            </Link>
+            <div className="text-xs border-2 border-primary rounded px-1 md:px-3 py-1 md:py-1.5 cursor-pointer text-primary font-bold hover:bg-primary hover:text-white">
               <Link href="/" className="flex items-center space-x-1">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 hidden md:block" />
                 <span>お問い合わせ</span>
               </Link>
             </div>
 
             {user ? (
               <>
-                <div className="text-xs border-2 border-primary text-primary font-bold rounded px-3 py-1.5 cursor-pointer hover:bg-primary hover:text-white">
+                <div className="text-xs border-2 border-primary text-primary font-bold rounded px-1 md:px-3 py-1 md:py-1.5 cursor-pointer hover:bg-primary hover:text-white">
                   {user.isAdmin ? (
                     <Link href="/admin">管理ページ</Link>
                   ) : (
@@ -67,7 +77,7 @@ const Navigation = ({ user }: NavigationProps) => {
                   )}
                 </div>
                 {/* <div
-                className="text-xs border border-primary text-primary font-bold rounded px-3 py-1.5 cursor-pointer hover:bg-primary hover:text-white"
+                className="text-xs border border-primary text-primary font-bold rounded px-3 py-1 md:py-1.5 cursor-pointer hover:bg-primary hover:text-white"
                 onClick={() => {
                   signOut({ callbackUrl: "/" })
                 }}
@@ -76,7 +86,7 @@ const Navigation = ({ user }: NavigationProps) => {
               </div> */}
               </>
             ) : (
-              <div className="text-xs border-2 border-primary text-primary font-bold rounded px-3 py-1.5 cursor-pointer hover:bg-primary hover:text-white">
+              <div className="text-xs border-2 border-primary text-primary font-bold rounded px-1 md:px-3 py-1 md:py-1.5 cursor-pointer hover:bg-primary hover:text-white">
                 <Link href="/login">ログイン</Link>
               </div>
             )}

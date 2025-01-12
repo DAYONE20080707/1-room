@@ -10,8 +10,8 @@ interface BlogDetailProps {
 
 const BlogDetail = ({ blog }: BlogDetailProps) => {
   return (
-    <div className="px-3 max-w-screen-lg mx-auto py-10">
-      <div className="bg-white border-2 border-black rounded-lg p-10">
+    <div className="px-3 max-w-screen-lg mx-auto py-5 md:py-10">
+      <div className="bg-white border-2 border-black rounded-lg p-3 md:p-10">
         <div className="aspect-w-16 aspect-h-9 relative mb-5">
           <Image
             src={blog.thumbnail?.url || "/noThumbnail.png"}
