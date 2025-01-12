@@ -61,9 +61,11 @@ const Satei1Form = () => {
   }
 
   return (
-    <div className="bg-white border-2 border-black rounded-lg p-10">
+    <div className="bg-white border-2 border-black rounded-lg p-3 md:p-10">
       <div className="text-center font-bold text-xl mb-10">
-        お持ちの不動産についてご入力ください
+        お持ちの不動産について
+        <br className="block md:hidden" />
+        ご入力ください
       </div>
 
       <Form {...form}>
