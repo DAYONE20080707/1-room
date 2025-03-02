@@ -37,7 +37,7 @@ import { cn } from "@/lib/utils"
 import { Company, CompanyImage } from "@prisma/client"
 import { useRouter } from "next/navigation"
 import { editCompany } from "@/actions/company"
-import { fr, ja } from "date-fns/locale"
+import { ja } from "date-fns/locale"
 import ImageUploading, { ImageListType } from "react-images-uploading"
 import Image from "next/image"
 import toast from "react-hot-toast"
@@ -683,6 +683,7 @@ const CompanyInfo = ({ company }: CompanyInfoProps) => {
                   <Textarea
                     placeholder="創業20年、1Rマンション買取に特化した豊富な経験と実績でお客様に最適なサービスを提供します。"
                     {...field}
+                    rows={5}
                   />
                 </FormControl>
                 <FormMessage />
