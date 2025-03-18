@@ -21,7 +21,7 @@ const useStepAnimation = (targetSelector: string, dynamicContentSelector?: strin
           trigger: steps[0],
           start: 'top 80%',
           end: 'bottom 50%',
-          markers: true,
+          markers: false,
           toggleActions: 'play none none none',
           once: true,
         },
