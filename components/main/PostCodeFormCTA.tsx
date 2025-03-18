@@ -66,7 +66,7 @@ const PostCodeFormCTA = () => {
           </div>
 
           <div className="font-bold text-lg md:text-2xl text-center mb-5">
-            安心・実績の●●●●●●●●に
+            安心・実績の「カイトルONE」に
             <br className="block md:hidden" />
             お任せください！
           </div>

@@ -19,7 +19,7 @@ const TopFirstView = () => {
         </div>
         <div>
           <Image
-            src="/top.svg"
+            src="/top-kv.png"
             alt="top"
             width={692}
             height={457}
