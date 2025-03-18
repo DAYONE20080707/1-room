@@ -35,7 +35,7 @@ const Navigation = ({ user }: NavigationProps) => {
           <div>
             <Link href="/">
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="logo"
                 width={160}
                 height={36}
@@ -60,12 +60,12 @@ const Navigation = ({ user }: NavigationProps) => {
             <Link href="#question" className="hidden md:block">
               よくある質問
             </Link>
-            <div className="text-xs border-2 border-primary rounded px-1 md:px-3 py-1 md:py-1.5 cursor-pointer text-primary font-bold hover:bg-primary hover:text-white">
+            {/* <div className="text-xs border-2 border-primary rounded px-1 md:px-3 py-1 md:py-1.5 cursor-pointer text-primary font-bold hover:bg-primary hover:text-white">
               <Link href="/" className="flex items-center space-x-1">
                 <Mail className="w-4 h-4 hidden md:block" />
                 <span>お問い合わせ</span>
               </Link>
-            </div>
+            </div> */}
 
             {user ? (
               <>
