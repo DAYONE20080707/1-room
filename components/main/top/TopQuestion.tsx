@@ -4,7 +4,7 @@ import { QUESTIONS } from "@/lib/utils"
 import { useState } from "react"
 import Image from "next/image"
 
-const Question = () => {
+const TopQuestion = () => {
   const [openQuestionId, setOpenQuestionId] = useState<string | null>(null)
 
   const toggleQuestion = (id: string) => {
@@ -83,4 +83,4 @@ const Question = () => {
   )
 }
 
-export default Question
+export default TopQuestion

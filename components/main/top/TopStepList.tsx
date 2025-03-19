@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Image from 'next/image'
 import useStepAnimation from '@/hooks/useStepAnimation'
@@ -15,43 +15,35 @@ const TopStepList = () => {
         <p className="font-bold text-2xl mb-10">かんたん! 3ステップで売却</p>
       </section>
 
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+      <section className="grid sm:grid-cols-3 gap-10">
         <div>
           <div className="step">
             <TopStepCard
               stepNumber="Step 01"
-              stepTitle="無料査定"
-              stepSubTitle="物件の詳細を元に査定を行います"
-              stepBody="お客様の物件情報をもとに、専門家が迅速かつ正確に査定を行い、最適な価格をご提示します。"
+              stepTitle="無料査定申し込み"
+              stepSubTitle="1分でカンタン入力"
+              stepBody="物件情報を入力するだけで、複数の不動産会社に一括査定依頼！"
             />
           </div>
           <div className="step">
             <TopStepCard
               stepNumber="Step 02"
-              stepTitle="査定結果ご報告"
-              stepSubTitle="結果の詳細と次の流れをご説明します"
-              stepBody="査定結果を分かりやすくご報告し、価格の根拠や今後の手続きについて丁寧にご説明いたします。"
+              stepTitle="査定のご案内"
+              stepSubTitle="各社の査定額を比較"
+              stepBody="査定結果を確認し、条件の良い会社を選べます。"
             />
           </div>
           <div className="step">
             <TopStepCard
               stepNumber="Step 03"
-              stepTitle="売買契約条件の調整・締結"
-              stepSubTitle="お客様の条件を反映した最適な契約を作成します"
-              stepBody="売買契約条件の調整を行い、お客様のニーズに沿った契約を締結します。安心してご利用いただけます。"
-            />
-          </div>
-          <div className="step">
-            <TopStepCard
-              stepNumber="Step 04"
-              stepTitle="決済・物件引き渡し"
-              stepSubTitle="最後まで丁寧にサポートいたします"
-              stepBody="決済完了後、物件の引き渡しを行います。全ての手続きがスムーズに進むようサポートいたします。"
+              stepTitle="売却先を決める"
+              stepSubTitle="最適な不動産会社を選択"
+              stepBody="納得のいく会社と契約し、スムーズに売却完了！"
             />
           </div>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 mt-12">
           <Image
             src="/step.png"
             alt="ステップ"

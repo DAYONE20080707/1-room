@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-interface ReasonItemProps {
+interface TopeasonProps {
   title: string
   highlights: string[]
   description: string
@@ -10,13 +10,13 @@ interface ReasonItemProps {
   imageSrc: string
 }
 
-const TopReasonItem = ({
+const TopReasonCard = ({
   title,
   highlights,
   description,
   detail,
   imageSrc,
-}: ReasonItemProps) => {
+}: TopeasonProps) => {
   return (
     <div className="bg-white rounded-lg p-3 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
       <div>
@@ -57,4 +57,4 @@ const TopReasonItem = ({
   )
 }
 
-export default TopReasonItem
+export default　TopReasonCard

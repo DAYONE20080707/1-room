@@ -23,8 +23,8 @@ const TopStepCard: React.FC<TopStepCardProps> = ({
         </span>
         {stepTitle}
       </h3>
-      {/* <h4 className="text-gray-500 text-lg mb-4">{stepSubTitle}</h4>
-      <p className="text-gray-700 text-base">{stepBody}</p> */}
+      <h4 className="text-gray-500 text-base mb-2">{stepSubTitle}</h4>
+      <p className="text-gray-700 text-base">{stepBody}</p>
     </div>
   )
 }
