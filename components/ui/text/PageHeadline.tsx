@@ -27,13 +27,13 @@ const PageHeadline: React.FC<PageHeadlineProps> = ({
             parentDirectoryLink={parentDirectoryLink}
           />
 
-          <div className=" mt-20 md:mt-40">
+          <div className=" mt-20 ">
             <h1 className=" font-ebGaramond text-2xl md:text-4xl italic font-bold">
               {subtitle}
             </h1>
             <h2 className=" text-base md:text-xl font-bold mt-2">{mainTitle}</h2>
           </div>
-          <p className="text-xs md:text-sm leading-[200%] mt-20 md:mt-40"> {body}</p>
+          <p className="text-xs md:text-sm leading-[200%] mt-20"> {body}</p>
         </div>
       </section>
 

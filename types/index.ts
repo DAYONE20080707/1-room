@@ -41,7 +41,6 @@ export interface FrameProps {
   id?: string // id属性を追加
 }
 
-
 export interface TextProps {
   title?: React.ReactNode
   subTitle: React.ReactNode
@@ -52,4 +51,11 @@ export interface TextProps {
   subTitleElement?: React.ElementType
   numberElement?: React.ElementType
   bodyElement?: React.ElementType
+}
+
+export interface LinkButtonProps {
+  href: string | URL // undefined を許可しない
+  children?: React.ReactNode
+  className?: string
+  hoverColor?: string
 }

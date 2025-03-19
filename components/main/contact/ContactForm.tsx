@@ -1,40 +1,35 @@
 // components/contact/ContactForm.tsx
 
-import React from 'react'
-import Link from 'next/link'
-import HubSpotContactForm from '@/components/main/contact/HubSpotContactForm'
-import styles from '@/styles/contact.module.css'
-
+import React from "react"
+import Link from "next/link"
+import HubSpotContactForm from "@/components/main/contact/HubSpotContactForm"
+import styles from "@/styles/contact.module.css"
+import ContentFrame from "@/components/ui/frame/ContentFrame"
 
 const ContactForm: React.FC = () => {
   return (
     <>
+      <ContentFrame>
+        <div className="  md:flex justify-start pt-20 md:space-x-52">
+          <section className="">
+            <div>
+              <h2 className=" text-lg md:text-xl font-bold leading-normal mb-5 md:mb-7">
+                詳しく知りたい方は
+                <br />
+                こちらからお問い合わせください。
+              </h2>
 
-        <section className=" md:flex justify-start pt-20 md:space-x-52">
-          <div>
-            <h2 className=" text-lg md:text-xl font-bold leading-normal mb-5 md:mb-7">
-              詳しく知りたい方は
-              <br />
-              こちらからお問い合わせください。
-            </h2>
-            <p className=" text-sm md:text-base mt-4 mb-7">
-              サービスを提供するだけではなく、
-              <br />
-              共に走るパートナーとして真の価値を創造します。
-              <br />
-              お気軽にお問い合わせください。
-            </p>
-            <p>
-              ※協業、営業などのお問い合わせは、
-              <Link href="/contact/sales" className="text-blue-600 font-bold">
-                こちらへ
-              </Link>
-              お願いいたします。
-            </p>
-          </div>
+              <p>
+                ※協業、営業などのお問い合わせは、
+                <Link href="/contact/sales" className="text-blue-600 font-bold">
+                  こちらへ
+                </Link>
+                お願いいたします。
+              </p>
+            </div>
+          </section>
 
-          {/* <ContactForm headerText=""  /> */}
-          <div className=" md:w-[500px]">
+          <section className=" md:w-[500px]">
             <div className={styles.contact}>
               <HubSpotContactForm />
             </div>
@@ -43,9 +38,9 @@ const ContactForm: React.FC = () => {
               株式会社デイワンが上記から送信された個人情報を保管・処理することに同意したものとみなされます。
               プライバシーポリシーをご覧ください。
             </p>
-          </div>
-        </section>
-    
+          </section>
+        </div>
+      </ContentFrame>
     </>
   )
 }

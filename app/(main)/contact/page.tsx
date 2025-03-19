@@ -39,7 +39,7 @@ const ContactPage: React.FC = () => {
           <PageHeadline mainTitle="お問い合わせ" subtitle="Contact" />
         </div>
 
-        <SecondMainFrame>
+
           {/* <section className=" w-[650px]  mx-auto  px-5">
             <h2 className=" text-xl font-bold leading-normal mb-5 md:mb-7">
               詳しく知りたい方は
@@ -55,7 +55,7 @@ const ContactPage: React.FC = () => {
           <div className="px-5">
             <ContcactForm />
           </div>
-        </SecondMainFrame>
+     
       </MainFrame>
     </>
   )

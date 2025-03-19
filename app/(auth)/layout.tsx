@@ -1,4 +1,4 @@
-import Navigation from "@/components/auth/Navigation"
+import Navigation from "@/components/ui/navigation/Navigation"
 import Footer from "@/components/main/Footer"
 import { getAuthUser } from "@/lib/nextauth"
 
@@ -15,7 +15,7 @@ const AuthLayout = async ({ children }: AuthLayoutProps) => {
       <main className="flex-1 bg-gray-50 py-5 md:py-10 flex items-center justify-center mx-2">
         {children}
       </main>
-      <Footer />
+      <Footer user={user} />
     </div>
   )
 }

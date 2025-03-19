@@ -1,4 +1,4 @@
-import Navigation from "@/components/auth/Navigation"
+import Navigation from "@/components/ui/navigation/Navigation"
 import Footer from "@/components/main/Footer"
 import { getAuthUser } from "@/lib/nextauth"
 
@@ -13,7 +13,7 @@ const MainLayout = async ({ children }: MainLayoutProps) => {
     <div className="flex min-h-screen flex-col">
       <Navigation user={user} />
       <main className="flex-1 bg-secondary">{children}</main>
-      <Footer />
+      <Footer user={user}  />
     </div>
   )
 }
