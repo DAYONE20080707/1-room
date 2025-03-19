@@ -2,7 +2,7 @@ import Performance from "@/components/main/Performance"
 import PostCodeForm from "@/components/main/PostCodeForm"
 import PostCodeFormCTA from "@/components/main/PostCodeFormCTA"
 import Question from "@/components/main/Question"
-import Reason from "@/components/main/Reason"
+import TopReasonList from "@/components/main/top/TopReasonList"
 import TopStepList from "@/components/main/top/TopStepList"
 import TopFirstView from "@/components/main/top/TopFirstView"
 import Blog from "@/components/main/blog/Blog"
@@ -16,7 +16,7 @@ const Home = async () => {
       <TopFirstView />
       <PostCodeForm />
       <div id="reason">
-        <Reason />
+        <TopReasonList />
       </div>
       <PostCodeFormCTA />
       <div className="bg-white">

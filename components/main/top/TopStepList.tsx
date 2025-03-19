@@ -12,7 +12,7 @@ const TopStepList = () => {
     <div id="step" className="px-3 max-w-screen-xl mx-auto py-20">
       <section>
         <h2 className="text-primary text-xl mb-3">不動産売却の流れ</h2>
-        <p className="font-bold text-2xl mb-10">かんたん00ステップで売却</p>
+        <p className="font-bold text-2xl mb-10">かんたん! 3ステップで売却</p>
       </section>
 
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -20,7 +20,7 @@ const TopStepList = () => {
           <div className="step">
             <TopStepCard
               stepNumber="Step 01"
-              stepTitle="売却査定依頼"
+              stepTitle="無料査定"
               stepSubTitle="物件の詳細を元に査定を行います"
               stepBody="お客様の物件情報をもとに、専門家が迅速かつ正確に査定を行い、最適な価格をご提示します。"
             />

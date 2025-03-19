@@ -10,7 +10,7 @@ interface ReasonItemProps {
   imageSrc: string
 }
 
-const ReasonItem = ({
+const TopReasonItem = ({
   title,
   highlights,
   description,
@@ -57,4 +57,4 @@ const ReasonItem = ({
   )
 }
 
-export default ReasonItem
+export default TopReasonItem
