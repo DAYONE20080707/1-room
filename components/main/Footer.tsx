@@ -16,13 +16,15 @@ const Footer = ({ user }: FooterProps) => {
       <div className="flex justify-between text-gray-500 text-sm">
         <div className="space-y-3">
           <div>
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={180}
-              height={36}
-              priority={false}
-            />
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="logo"
+                width={180}
+                height={36}
+                priority={false}
+              />
+            </Link>
           </div>
           <p>株式会社デイワン</p>
           <p>107-0061 東京都港区北青山2-7-20</p>
@@ -38,19 +40,25 @@ const Footer = ({ user }: FooterProps) => {
           </div>
         </div>
 
-        <div className="space-y-3 text-right">
+        <div className="space-y-3 text-right ">
           {/* 認証部分を追加 */}
           {user ? (
-            <div className="text-xs text-center border-2 border-primary text-primary font-bold rounded px-3 py-1.5 cursor-pointer hover:bg-primary hover:text-white">
+            <div className="text-xs text-center border-2 border-primary text-primary font-bold rounded cursor-pointer hover:bg-primary hover:text-white py-2 px-4">
               {user.isAdmin ? (
-                <Link href="/admin" className="w-full">管理ページ</Link>
+                <Link href="/admin" className="w-full">
+                  管理ページ
+                </Link>
               ) : (
-                <Link href="/member"  className="w-full">マイページ</Link>
+                <Link href="/member" className="w-full">
+                  マイページ
+                </Link>
               )}
             </div>
           ) : (
-            <div className="text-xs text-center border-2 border-primary text-primary font-bold rounded px-3 py-1.5 cursor-pointer hover:bg-primary hover:text-white">
-              <Link href="/login"  className="w-full">ログイン</Link>
+            <div className="text-xs text-center border-2 border-primary text-primary font-bold rounded cursor-pointer hover:bg-primary hover:text-white py-2 px-4">
+              <Link href="/login" className="w-full">
+                ログイン
+              </Link>
             </div>
           )}
 
