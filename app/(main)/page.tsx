@@ -1,4 +1,4 @@
-import Performance from "@/components/main/Performance"
+import Performance from "@/components/main/top/TopPerformance"
 import PostCodeForm from "@/components/main/PostCodeForm"
 import PostCodeFormCTA from "@/components/main/PostCodeFormCTA"
 import Question from "@/components/main/top/TopQuestion"
@@ -29,9 +29,9 @@ const Home = async () => {
         <div id="blog">
           <Blog />
         </div>
-        <div>
+        {/* <div>
           <CompanySearch />
-        </div>
+        </div> */}
         <PostCodeFormCTA />
         <div id="question">
           <Question />

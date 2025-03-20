@@ -1,11 +1,11 @@
 "use client"
 
-import PerformanceItem from "@/components/main/PerformanceItem"
+import TopPerformanceCard from "@/components/main/top/TopPerformanceCard"
 import { useEffect, useState } from "react"
 import { microcms } from "@/lib/microcms"
 import { CaseType } from "@/types"
 
-const Performance = () => {
+const TopPerformance = () => {
   const [cases, setCases] = useState<CaseType[]>([])
 
   useEffect(() => {
@@ -37,11 +37,11 @@ const Performance = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {cases.map((singleCase) => (
-          <PerformanceItem key={singleCase.thumbnail.url} case={singleCase} />
+          <TopPerformanceCard key={singleCase.id} case={singleCase} />
         ))}
       </div>
     </div>
   )
 }
 
-export default Performance
+export default TopPerformance
