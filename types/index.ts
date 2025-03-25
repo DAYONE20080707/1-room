@@ -5,7 +5,7 @@ export interface OrderType {
 
 export interface CaseType {
   id: string
-  thumbnail: {
+  thumbnail?: {
     url?: string
   }
   title: string

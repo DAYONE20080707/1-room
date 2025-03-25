@@ -12,7 +12,7 @@ const PerformanceItem = ({ case: singleCase }: PerformanceItemProps) => {
     <div className="border rounded-lg p-5 space-y-2">
       <div className="aspect-w-16 aspect-h-9 relative">
         <Image
-          src={singleCase.thumbnail?.url || "/noThumbnail.png"}
+          src={singleCase?.thumbnail?.url || "/noThumbnail.png"}
           alt="実績"
           fill
           priority={false}
