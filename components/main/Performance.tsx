@@ -37,7 +37,7 @@ const Performance = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {cases.map((singleCase) => (
-          <PerformanceItem key={singleCase.thumbnail.url} case={singleCase} />
+          <PerformanceItem key={singleCase.id} case={singleCase} />
         ))}
       </div>
     </div>

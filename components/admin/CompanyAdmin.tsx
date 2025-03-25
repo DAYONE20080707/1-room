@@ -711,6 +711,7 @@ const CompanyAdmin = ({ company }: CompanyAdminProps) => {
                   <Textarea
                     placeholder="創業20年、1Rマンション買取に特化した豊富な経験と実績でお客様に最適なサービスを提供します。"
                     {...field}
+                    rows={5}
                   />
                 </FormControl>
                 <FormMessage />

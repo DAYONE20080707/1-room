@@ -306,9 +306,12 @@ export const AREA_LIST = [
 ] as const
 
 export const formatPostCode = (code: string) => {
-  if (code.length === 7) {
-    return `〒${code.slice(0, 3)}-${code.slice(3)}`
+  const normalized = code.replace(/-/g, "")
+
+  if (normalized.length === 7) {
+    return `〒${normalized.slice(0, 3)}-${normalized.slice(3)}`
   }
+
   return code
 }
 
